@@ -8,29 +8,94 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <script src="js/script.js" defer></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Weather App</title>
 </head>
 
 <body>
-  <nav class="">
-    <div class="flex items-center justify-between mx-auto p-6">
-      <div class="right-menu flex items-center space-x-20">
+  <nav class="sticky top-0 shadow-lg bg-white ">
+    <div class="flex items-center justify-between mx-auto p-8 h-20 container relative ">
+      <div class="left-menu flex items-center gap-8">
         <img src="images/weatherzero_logo.jpg" alt="logo" class="w-60">
-        <div class="hidden font-bold space-x-8 lg:flex text-2xl">
-          <a href="#" class="text-[#555] hover:text-black">Services</a>
-          <a href="#" class="text-[#555] hover:text-black">Features</a>
-          <a href="#" class="text-[#555] hover:text-black">Testimonials</a>
-          <a href="#" class="text-[#555] hover:text-black">Pricing</a>
+        <div class="hidden font-bold space-x-8 lg:flex lg:text-xl h-8">
+          <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Services</a>
+          <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Features</a>
+          <!-- <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Testimonials</a> -->
+          <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Pricing</a>
         </div>
       </div>
-      <div class="left-menu hidden items-center font-bold space-x-6 lg:flex text-2xl ">
+      <div class="right-menu hidden items-center font-bold space-x-6 lg:flex lg:text-xl ">
         <a href="#" class="text-[#555] hover:text-black">Login</a>
         <a href="#" class="bg-blue-500 rounded-full px-8 py-3 text-white hover:opacity-70">Sign Up</a>
       </div>
+      <!-- Hamburger -->
+      <div class="lg:hidden">
+        <button id="menu-btn" type="button" class=" z-40 block hamburger lg:hidden focus:outline-none">
+          <span class="hamburger-top"></span>
+          <span class="hamburger-middle"></span>
+          <span class="hamburger-bottom"></span>
+        </button>
+      </div>
+      <!-- nav-list -->
+      <div class="nav-list absolute hidden p-6 rounded-lg bg-slate-800 left-6 right-6 top-20 z-100 lg:hidden ">
+        <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm ">
+          <a href="#" class="w-full text-center">Services</a>
+          <a href="#" class="w-full text-center">Features</a>
+          <a href="#" class="w-full text-center">Pricing</a>
+          <a href="#" class="w-full pt-6 border-t border-gray-400 text-center">Login</a>
+          <a href="#" class="w-full py-3 rounded-full bg-blue-500 text-center">Sign Up</a>
+        </div>
+      </div>
     </div>
   </nav>
+
+
+
+
+
+  <main>
+    <section class="section-hero border-4 h-screen container mx-auto">
+
+      <div class="hero container max-w-6xl mx-auto items-center">
+
+        <div class="flex pt-12">
+          <input type="text" name="city" id="city" class=" p-3 w-full mr-2 rounded-xl border-4"
+            placeholder="Enter city here">
+          <button class="border-4 p-3 rounded-xl hover:bg-blue-500 hover:text-white"><svg
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="grid grid-rows-3 grid-flow-col gap-4 h-[32rem] mt-12">
+          <div class="row-span-3 shadow-md ">01</div>
+          <div class="col-span-2 border-4">02</div>
+          <div class="row-span-2 col-span-2 border-4">03</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <section class="services">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore ad dolor minus, expedita optio ipsa doloremque
+      odio qui possimus non ipsam facilis eos quod odit! Voluptates iusto atque vero deserunt cumque at dolorum nulla
+      nisi nihil iure itaque dicta ipsam, ducimus alias cum quia vel enim excepturi laudantium. Totam laboriosam ipsum
+      tempora placeat eius ea, ratione sit alias itaque culpa harum sequi dicta doloribus animi facilis beatae, optio
+      expedita tenetur iure. Quae iste recusandae iusto magnam tempore vel corporis vero dicta, inventore necessitatibus
+      alias in laboriosam. Nam animi laborum possimus vitae facere repellat voluptatem, cum non minima! Voluptate, a ad.
+    </p>
+  </section>
+
+  <footer>
+
+  </footer>
 </body>
 
 </html>
