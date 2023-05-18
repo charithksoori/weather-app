@@ -14,51 +14,49 @@
 </head>
 
 <body>
-  <nav class="sticky top-0 shadow-lg bg-white ">
-    <div class="flex items-center justify-between mx-auto p-8 h-20 container relative ">
-      <div class="left-menu flex items-center gap-8">
-        <img src="images/weatherzero_logo.jpg" alt="logo" class="w-60">
-        <div class="hidden font-bold space-x-8 lg:flex lg:text-xl h-8">
-          <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Services</a>
-          <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Features</a>
-          <!-- <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Testimonials</a> -->
-          <a href="#" class="text-[#555] hover:text-black hover:border-b-2">Pricing</a>
+  <header>
+
+    <nav class="fixed top-0 left-0 w-full shadow-lg bg-white ">
+      <div class="flex items-center justify-between mx-auto p-8 h-20 relative ">
+        <div class="left-menu flex items-center gap-8">
+          <img src="images/weatherzero_logo.jpg" alt="logo" class="w-60">
+          <div class="hidden font-bold space-x-8 lg:flex lg:text-lg h-8">
+            <a href="#" class="hover:text-[#2caeba] hover:border-b-2 hover:transition-all">Services</a>
+            <a href="#" class="hover:text-[#88ebf2] hover:border-b-2">Features</a>
+            <a href="#" class="hover:text-[#e67e22] hover:border-b-2">Testimonials</a>
+            <a href="#" class="hover:text-[#cf711f] hover:border-b-2">Pricing</a>
+          </div>
+        </div>
+        <div class="right-menu hidden items-center font-bold space-x-6 lg:flex lg:text-lg ">
+          <a href="#" class="text-[#555] hover:text-black">Login</a>
+          <a href="#"
+            class="bg-[#e67e22] rounded-full px-8 py-3 text-white hover:bg-[#cf711f] hover:transition-all">Sign
+            Up</a>
+        </div>
+        <!-- Hamburger -->
+        <div class="lg:hidden">
+          <button id="menu-btn" type="button" class=" z-40 block hamburger lg:hidden focus:outline-none">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
+        </div>
+        <!-- nav-list -->
+        <div class="nav-list absolute hidden p-6 rounded-lg bg-slate-800 left-6 right-6 top-20 z-100 lg:hidden ">
+          <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm ">
+            <a href="#" class="w-full text-center">Services</a>
+            <a href="#" class="w-full text-center">Features</a>
+            <a href="#" class="w-full text-center">Pricing</a>
+            <a href="#" class="w-full pt-6 border-t border-gray-400 text-center">Login</a>
+            <a href="#" class="w-full py-3 rounded-full bg-blue-500 text-center">Sign Up</a>
+          </div>
         </div>
       </div>
-      <div class="right-menu hidden items-center font-bold space-x-6 lg:flex lg:text-xl ">
-        <a href="#" class="text-[#555] hover:text-black">Login</a>
-        <a href="#" class="bg-blue-500 rounded-full px-8 py-3 text-white hover:opacity-70">Sign Up</a>
-      </div>
-      <!-- Hamburger -->
-      <div class="lg:hidden">
-        <button id="menu-btn" type="button" class=" z-40 block hamburger lg:hidden focus:outline-none">
-          <span class="hamburger-top"></span>
-          <span class="hamburger-middle"></span>
-          <span class="hamburger-bottom"></span>
-        </button>
-      </div>
-      <!-- nav-list -->
-      <div class="nav-list absolute hidden p-6 rounded-lg bg-slate-800 left-6 right-6 top-20 z-100 lg:hidden ">
-        <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm ">
-          <a href="#" class="w-full text-center">Services</a>
-          <a href="#" class="w-full text-center">Features</a>
-          <a href="#" class="w-full text-center">Pricing</a>
-          <a href="#" class="w-full pt-6 border-t border-gray-400 text-center">Login</a>
-          <a href="#" class="w-full py-3 rounded-full bg-blue-500 text-center">Sign Up</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
 
-
-
-
-  <main>
-    <section class="section-hero border-4 h-screen container mx-auto">
-
+    <section class="section-hero border-4 h-screen">
       <div class="hero container max-w-6xl mx-auto items-center">
-
         <div class="flex pt-12">
           <input type="text" name="city" id="city" class=" p-3 w-full mr-2 rounded-xl border-4"
             placeholder="Enter city here">
@@ -76,11 +74,9 @@
           <div class="col-span-2 border-4">02</div>
           <div class="row-span-2 col-span-2 border-4">03</div>
         </div>
-
       </div>
     </section>
-
-  </main>
+  </header>
 
 
   <section class="services">
