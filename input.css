@@ -6,6 +6,19 @@ body {
   color: #1a2027;
 }
 
+.google-map {
+  padding-bottom: 50%;
+  position: relative;
+}
+
+.google-map iframe {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
 .backcol {
   background-image: linear-gradient(
     203deg,
@@ -22,6 +35,7 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   box-shadow: inset 0px -1px 1px #e7ebf0;
+  z-index: 999;
 }
 
 .hamburger {

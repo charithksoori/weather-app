@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
@@ -19,17 +19,16 @@
   <title>Weather App</title>
 </head>
 
-<body>
-  <header>
-
-    <nav class="navbar">
-      <div class="flex items-center justify-between mx-auto px-20 h-16 relative ">
+<body lass="overflow-x-hidden">
+  <header class="navbar">
+    <nav>
+      <div class="flex items-center justify-between mx-auto px-6 md:px-20 h-16 relative ">
         <div class="left-menu flex items-center gap-8">
-          <img src="images/weatherzero_logo.jpg" alt="logo" class="w-44">
+          <img src="images/weatherzero_logo.png" alt="logo" class="w-44">
           <div class="hidden font-semibold space-x-8 lg:flex lg:text-lg h-8">
             <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Services</a>
-            <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Features</a>
-            <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Testimonials</a>
+            <a href="#features" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Features</a>
+            <a href="#testimonials" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Testimonials</a>
             <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Pricing</a>
           </div>
         </div>
@@ -47,10 +46,10 @@
           </button>
         </div>
         <!-- nav-list -->
-        <div class="nav-list absolute hidden p-6 rounded-lg bg-slate-800 left-6 right-6 top-20 z-100 lg:hidden ">
+        <div class="nav-list absolute hidden p-6 rounded-lg bg-slate-800 left-6 right-6 top-16 z-100 lg:hidden ">
           <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm ">
             <a href="#" class="w-full text-center">Services</a>
-            <a href="#" class="w-full text-center">Features</a>
+            <a href="#features" class="w-full text-center">Features</a>
             <a href="#" class="w-full text-center">Pricing</a>
             <a href="#" class="w-full pt-6 border-t border-gray-400 text-center">Login</a>
             <a href="#" class="w-full py-3 rounded-full bg-blue-500 text-center">Sign Up</a>
@@ -58,47 +57,209 @@
         </div>
       </div>
     </nav>
-
-
-    <section class="section-hero h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
-      <div class="hero container max-w-6xl mx-auto items-center">
-        <div class="flex pt-44">
-          <input type="text" name="city" id="city" class=" p-3 w-full mr-2 rounded-xl border-4"
-            placeholder="Enter city here">
-          <button class="border-4 p-3 rounded-xl hover:bg-blue-500 hover:text-white"><svg
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-6 h-6 stroke-2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-rows-3 md:grid-flow-col md:gap-4 mt-12 ">
-          <div class="row-span-3 shadow-md bg-white rounded-lg">
-            <h2 class="text-3xl m-6">Now</h2>
-            <p class="text-6xl m-6"><span class="text-8xl">5</span>C</p>
-
-
-          </div>
-          <div class="col-span-2 shadow-md">
-          </div>
-          <div class="row-span-2 col-span-2 shadow-md">03</div>
-        </div>
-      </div>
-    </section>
   </header>
 
+  <section class="section-hero h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div class="hero container max-w-6xl mx-auto items-center">
+      <div class="flex pt-44">
+        <input type="text" name="city" id="city" class=" p-3 w-full mr-2 rounded-xl border-4"
+          placeholder="Enter city here">
+        <button class="border-4 p-3 rounded-xl hover:bg-blue-500 hover:text-white"><svg
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 stroke-2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+          </svg>
+        </button>
+      </div>
 
-  <section class="services">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore ad dolor minus, expedita optio ipsa doloremque
-      odio qui possimus non ipsam facilis eos quod odit! Voluptates iusto atque vero deserunt cumque at dolorum nulla
-      nisi nihil iure itaque dicta ipsam, ducimus alias cum quia vel enim excepturi laudantium. Totam laboriosam ipsum
-      tempora placeat eius ea, ratione sit alias itaque culpa harum sequi dicta doloribus animi facilis beatae, optio
-      expedita tenetur iure. Quae iste recusandae iusto magnam tempore vel corporis vero dicta, inventore necessitatibus
-      alias in laboriosam. Nam animi laborum possimus vitae facere repellat voluptatem, cum non minima! Voluptate, a ad.
-    </p>
+
+      <div class="grid grid-cols-1 md:grid-rows-3 md:grid-flow-col md:gap-4 mt-12 ">
+        <div class="row-span-3 shadow-md bg-white rounded-lg">
+          <h2 class="text-3xl m-6">Now</h2>
+          <p class="text-6xl m-6"><span class="text-8xl">5</span>C</p>
+
+
+        </div>
+        <div class="col-span-2 shadow-md">
+        </div>
+        <div class="row-span-2 col-span-2 shadow-md">03</div>
+      </div>
+    </div>
   </section>
+
+
+
+  <section class="section-features" id="features">
+    <!-- tabs -->
+    <div class="container mx-auto mt-16 px-6 pt-20">
+      <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
+      <p class="text-center mx-auto max-w-md">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus placeat vitae, mollitia ipsam exercitationem
+        necessitatibus.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tabs" id="tabs"></section>
+  <!-- panels -->
+  <div class="tabs-menu" id="tabs">
+    <div class="containr relative mx-auto my-6 mb-32 mt-12 px-6">
+      <div class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:space-x-10 md:flex-row">
+        <div
+          class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tab cursor-pointer"
+          data-target="panel-1">
+          <div class="py-5 border-b-4 border-lightBlue" data-target="panel-1">Real Time Data</div>
+        </div>
+
+        <div
+          class="tab2 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tab cursor-pointer"
+          data-target="panel-2">
+          <div class="py-5" data-target="panel-2">Weather Conditions</div>
+        </div>
+
+        <div
+          class="tab3 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tab cursor-pointer"
+          data-target="panel-3">
+          <div class="py-5" data-target="panel-3">Keep on Track</div>
+        </div>
+      </div>
+
+      <!-- panels -->
+
+      <div class="container-mx-auto" id="panels">
+        <!-- panel 1 -->
+        <div class="flex flex-col py-5 md:flex-row md:space-x-7 panel panel-1">
+          <!-- image -->
+          <div class="flex justify-center md:w-1/2 -mt-16">
+            <img src="images/panel1.jpg" alt="" class="relative z-10 w-96">
+          </div>
+
+          <!-- content -->
+          <div class="flex flex-col space-y-8 md:w-1/2">
+            <h3 class="mt-32 font-semibold text-center text-3xl md:mt-0 md:text-left">Plan your journey</h3>
+            <p class="max-w-md text-center md:text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolores alias sit? In odio saepe nisi
+              consequuntur id delectus quibusdam.
+            </p>
+          </div>
+        </div>
+
+        <!-- panel 2 -->
+        <div class="flex flex-col hidden py-5 md:flex-row md:space-x-7 panel panel-2">
+          <!-- image -->
+          <div class="flex justify-center md:w-1/2 -mt-16">
+            <img src="images/panel1.jpg" alt="" class="relative z-10 w-96">
+          </div>
+
+          <!-- content -->
+          <div class="flex flex-col space-y-8 md:w-1/2">
+            <h3 class="mt-14 font-semibold text-center text-3xl md:mt-0 md:text-left">Check Weather</h3>
+            <p class="max-w-md text-center md:text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolores alias sit? In odio saepe nisi
+              consequuntur id delectus quibusdam.
+            </p>
+          </div>
+        </div>
+
+        <!-- panel 3 -->
+        <div class="flex flex-col hidden py-5 md:flex-row md:space-x-7 panel panel-3">
+          <!-- image -->
+          <div class="flex justify-center md:w-1/2 -mt-16">
+            <img src="images/panel1.jpg" alt="" class="relative z-10 w-96">
+          </div>
+
+          <!-- content -->
+          <div class="flex flex-col space-y-8 md:w-1/2">
+            <h3 class="mt-14 font-semibold text-center text-3xl md:mt-0 md:text-left">Enjoy your day</h3>
+            <p class="max-w-md text-center md:text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolores alias sit? In odio saepe nisi
+              consequuntur id delectus quibusdam.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="bg-[#F3F6F9] pt-20">
+      <div class="container mx-auto px-6 pt-12 pb-80 md:pb-96">
+        <div class="relative flex flex-col w-full space-y-6 md:flex-row md:space-y-0 md:space-x-12">
+          <!-- Quotes -->
+          <img src="images/bg-quotes.png" alt="" class="absolute left-1 -top-2 w-10 md:-top-16 md:w-20">
+
+          <!-- Box 1 -->
+          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3">
+            <p class="text-sm leading-5 md:text-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
+              molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
+            </p>
+            <div class="flex space-x-4">
+              <img src="images/customer-2.jpg" alt="customer-logo" class="w-10 h-10 rounded-full">
+              <div>
+                <h5 class="text-sm font-semibold">Mark Anthony</h5>
+                <p class="text-xs font-extralight">Founder & CEO.Samsons</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box 2 -->
+          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3">
+            <p class="text-sm leading-5 md:text-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
+              molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
+            </p>
+            <div class="flex space-x-4">
+              <img src="images/customer-1.jpg" alt="customer-logo" class="w-10 h-10 rounded-full">
+              <div>
+                <h5 class="text-sm font-semibold">Mark Anthony</h5>
+                <p class="text-xs font-extralight">Founder & CEO.Samsons</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box 3 -->
+          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3">
+            <p class="text-sm leading-5 md:text-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
+              molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
+            </p>
+            <div class="flex space-x-4">
+              <img src="images/customer-3.jpg" alt="customer-logo" class="w-10 h-10 rounded-full">
+              <div>
+                <h5 class="text-sm font-semibold">Mark Anthony</h5>
+                <p class="text-xs font-extralight">Founder & CEO.Samsons</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-info">
+    <div class="relative px-6md:px-0">
+      <div
+        class="relative -top-40 max-w-4xl mx-auto p-10 px-6 space-y-6 text-center rounded-lg bg-[#173A5E] md:px-16 text-white">
+        <h5 class="text-2xl font-bold">Get to update today</h5>
+        <p class="text-sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, facilis quas, modi possimus hic assumenda minima
+          nulla similique optio quasi sunt qui cupiditate totam quam!
+        </p>
+        <!-- Input email-->
+        <div class="flex flex-col items-start space-y-6 md:flex-row md:space-y-0 md:space-x-6">
+          <div class="w-full md:flex-1">
+            <input type="text" name="" id="" class="w-full px-10 py-3 rounded-full focus:outline-none"
+              placeholder="johnsmith@gmail.com">
+          </div>
+          <button class="w-full p-3 px-6 rounded-full bg-[#03a9f4] md:w-56 hover:scale-95">Get Started for Free</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <footer>
     <div class="border-t-2 mt-20 py-16 px-4">
@@ -106,7 +267,7 @@
         class="flex flex-col lg:flex-row container max-w-6xl mx-auto justify-between items-center space-y-16 md:flex-row md:space-y-0 md:items-start">
         <!-- footer-logo -->
         <div class="footer-logo">
-          <img src="images/weatherzero_logo.jpg" alt="footer-logo" class="w-60">
+          <img src="images/weatherzero_logo.png" alt="footer-logo" class="w-56">
         </div>
         <!-- footer-links -->
         <div class="flex flex-col md:space-x-20 md:flex-row space-y-16 md:space-y-0">
@@ -139,20 +300,20 @@
               <a href="">dfgdhdfh</a>
             </div>
           </div>
-
-
         </div>
+
+
 
         <!-- footer-social-links -->
         <div class="flex space-x-4 md:flex-col lg:flex-row md:space-x-0 lg:space-x-4 md:pr-8 lg:pr-0">
           <a href=""><ion-icon name="logo-facebook"
-              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-instagram"
-              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-youtube"
-              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-twitter"
-              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
 
 
         </div>
