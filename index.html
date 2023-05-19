@@ -5,31 +5,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
   <script src="js/script.js" defer></script>
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>Weather App</title>
 </head>
 
 <body>
   <header>
 
-    <nav class="fixed top-0 left-0 w-full shadow-lg bg-[#fdf2e9] ">
-      <div class="flex items-center justify-between mx-auto p-8 h-20 relative ">
+    <nav class="navbar">
+      <div class="flex items-center justify-between mx-auto px-20 h-16 relative ">
         <div class="left-menu flex items-center gap-8">
-          <img src="images/weatherzero_logo.jpg" alt="logo" class="w-60">
-          <div class="hidden font-bold space-x-8 lg:flex lg:text-lg h-8">
-            <a href="#" class="hover:text-[#2caeba] hover:border-b-2 hover:transition-all">Services</a>
-            <a href="#" class="hover:text-[#2caeba] hover:border-b-2">Features</a>
-            <a href="#" class="hover:text-[#cf711f] hover:border-b-2">Testimonials</a>
-            <a href="#" class="hover:text-[#cf711f] hover:border-b-2">Pricing</a>
+          <img src="images/weatherzero_logo.jpg" alt="logo" class="w-44">
+          <div class="hidden font-semibold space-x-8 lg:flex lg:text-lg h-8">
+            <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Services</a>
+            <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Features</a>
+            <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Testimonials</a>
+            <a href="#" class="hover:text-[#0059b2] hover:border-b-2 transition-all">Pricing</a>
           </div>
         </div>
-        <div class="right-menu hidden items-center font-bold space-x-6 lg:flex lg:text-lg ">
+        <div class="right-menu hidden items-center font-semibold space-x-6 lg:flex lg:text-lg ">
           <a href="#" class="text-[#555] hover:text-black">Login</a>
-          <a href="#" class="bg-[#e67e22] rounded-lg px-6 py-3 text-white hover:bg-[#cf711f] hover:transition-all">Sign
+          <a href="#" class="bg-[#007FFF] rounded-full px-5 py-2 text-white hover:bg-[#0059b2] transition-all">Sign
             Up</a>
         </div>
         <!-- Hamburger -->
@@ -54,7 +60,7 @@
     </nav>
 
 
-    <section class="section-hero h-screen bg-[#fdf2e9]">
+    <section class="section-hero h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
       <div class="hero container max-w-6xl mx-auto items-center">
         <div class="flex pt-44">
           <input type="text" name="city" id="city" class=" p-3 w-full mr-2 rounded-xl border-4"
@@ -68,8 +74,8 @@
           </button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-rows-3 md:grid-flow-col md:gap-4 mt-12">
-          <div class="row-span-3 shadow-md ">
+        <div class="grid grid-cols-1 md:grid-rows-3 md:grid-flow-col md:gap-4 mt-12 ">
+          <div class="row-span-3 shadow-md bg-white rounded-lg">
             <h2 class="text-3xl m-6">Now</h2>
             <p class="text-6xl m-6"><span class="text-8xl">5</span>C</p>
 
@@ -140,13 +146,13 @@
         <!-- footer-social-links -->
         <div class="flex space-x-4 md:flex-col lg:flex-row md:space-x-0 lg:space-x-4 md:pr-8 lg:pr-0">
           <a href=""><ion-icon name="logo-facebook"
-              class="w-[40px] h-[40px] hover:text-blue-500 transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-instagram"
-              class="w-[40px] h-[40px] hover:text-blue-500 transition-all"></ion-icon></a>
-          <a href=""><ion-icon name="logo-pinterest"
-              class="w-[40px] h-[40px] hover:text-blue-500 transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
+          <a href=""><ion-icon name="logo-youtube"
+              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-twitter"
-              class="w-[40px] h-[40px] hover:text-blue-500 transition-all"></ion-icon></a>
+              class="w-[36px] h-[36px] hover:text-[#0059b2] transition-all"></ion-icon></a>
 
 
         </div>
