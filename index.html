@@ -61,18 +61,28 @@
   </header>
 
   <section class="section-hero h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
-    <div class="hero container max-w-6xl mx-auto items-center">
-      <div class="flex pt-44">
-        <input type="text" name="city" id="city" class=" p-3 w-full mr-2 rounded-xl border-4"
-          placeholder="Enter city here">
-        <button class="border-4 p-3 rounded-xl hover:bg-blue-500 hover:text-white"><svg
-            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6 stroke-2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-        </button>
-      </div>
+    <div class="hero container max-w-6xl mx-auto items-center p-8">
+
+      <!--  -->
+      <form>
+        <label for="default-search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <input type="search" id="default-search"
+            class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter city here" required>
+          <button type="submit"
+            class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+      </form>
+
 
 
       <div class="grid grid-cols-1 md:grid-rows-3 md:grid-flow-col md:gap-4 mt-12 ">
@@ -88,6 +98,8 @@
       </div>
     </div>
   </section>
+
+
 
 
   <!-- Features -->
@@ -133,13 +145,13 @@
         <!-- panel 1 -->
         <div class="flex flex-col py-5 md:flex-row md:space-x-7 panel panel-1">
           <!-- image -->
-          <div class="flex justify-center md:w-1/2 pl-60 -mt-6">
+          <div class="flex justify-center md:w-1/2 md:pl-60 md:-mt-2 ">
             <img src="images/panel1.jpg" alt="" class="relative z-10 w-96">
           </div>
 
           <!-- content -->
           <div class="flex flex-col space-y-8 md:w-1/2">
-            <h3 class="mt-32 font-semibold text-center text-3xl md:mt-0 md:text-left">Plan your journey</h3>
+            <h3 class="mt-16 font-semibold text-center text-3xl md:mt-0 md:text-left">Plan your journey</h3>
             <p class="max-w-md text-center md:text-left">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolores alias sit? In odio saepe nisi
               consequuntur id delectus quibusdam.
@@ -150,7 +162,7 @@
         <!-- panel 2 -->
         <div class="flex flex-col hidden py-5 md:flex-row md:space-x-7 panel panel-2">
           <!-- image -->
-          <div class="flex justify-center md:w-1/2 pl-60 -mt-8">
+          <div class="flex justify-center md:w-1/2 md:pl-60 -mt-8">
             <img src="images/panel2.jpg" alt="" class="relative z-10 w-96">
           </div>
 
@@ -167,7 +179,7 @@
         <!-- panel 3 -->
         <div class="flex flex-col hidden py-5 md:flex-row md:space-x-7 panel panel-3">
           <!-- image -->
-          <div class="flex justify-center md:w-1/2 pl-60 -mt-6">
+          <div class="flex justify-center md:w-1/2 md:pl-60 -mt-6 md:mt-0">
             <img src="images/panel3.jpg" alt="" class="relative z-10 w-96">
           </div>
 
@@ -266,9 +278,9 @@
 
   <!-- Pricing -->
 
-  <section class="bg-white pt-20" id="pricing">
+  <section class="bg-white md:pt-20 -mt-24 md:-mt-0" id="pricing">
     <div class="container mx-auto max-w-6xl">
-      <div class=" py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class=" py-8 px-4 mx-auto max-w-screen-xl md:py-16 md:px-6">
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
           <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Designed for business
             teams like yours</h2>
@@ -489,9 +501,8 @@
 
   <!-- Contact-->
 
-
   <section class="bg-[#F3F6F9] pt-24" id="contact">
-    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md bg-white rounded-t-lg">
       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
       <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue?
         Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
@@ -526,7 +537,7 @@
 
 
   <footer>
-    <div class="border-t-2 mt-20 py-16 px-4">
+    <div class="border-t-2 mt-20 py-16 px-4 bg-[#173A5E] text-white">
       <div
         class="flex flex-col lg:flex-row container max-w-6xl mx-auto justify-between items-center space-y-16 md:flex-row md:space-y-0 md:items-start">
         <!-- footer-logo -->
