@@ -19,6 +19,14 @@ body {
   position: absolute;
 }
 
+.backimg {
+  background: linear-gradient(to right bottom, #007fff, #0059b2 120%);
+}
+
+.back {
+  background-color: #5090d3;
+}
+
 .backcol {
   background-image: linear-gradient(
     203deg,
