@@ -41,3 +41,29 @@ function onTabClick(e) {
     .getElementsByClassName(classString)[0]
     .classList.remove("hidden");
 }
+
+// Weather API
+
+const apiKey = "1258b95ec12041c5856171928231505";
+const apiUrl =
+  "http://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
+
+const searchBox = document.querySelector(".search");
+const searchBtn = document.querySelector(".btn");
+const imgBox = document.querySelector(".img");
+
+async function checkWeather(city) {
+  const response = await fetch(apiUrl + city);
+  var data = await response.json();
+  console.log(data);
+
+  document.querySelector(".city").innerText = data.location.name;
+  document.querySelector(".temp").innerText = data.current.temp_c;
+  document.querySelector(".condition").innerText = data.current.condition.text;
+  document.querySelector(".humidity").innerText = data.current.humidity;
+  imgBox.src = data.current.condition.icon;
+}
+
+searchBtn.addEventListener("click", () => {
+  checkWeather(searchBox.value);
+});
