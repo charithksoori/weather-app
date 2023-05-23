@@ -6,17 +6,10 @@ body {
   color: #1a2027;
 }
 
-.google-map {
-  padding-bottom: 50%;
-  position: relative;
-}
-
-.google-map iframe {
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  position: absolute;
+.headingback {
+  background: linear-gradient(to right, #007fff, #0059b2);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .backimg {
@@ -24,7 +17,8 @@ body {
 }
 
 .back {
-  background-color: #5090d3;
+  /* background-color: #99ccf3; */
+  background-color: #173a5e;
 }
 
 .backcol {
