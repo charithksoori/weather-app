@@ -6,16 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="js/script.js" defer></script>
+
   <link rel="stylesheet" href="css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script src="js/script.js" defer></script>
   <title>Weather App</title>
 </head>
 
@@ -126,27 +129,21 @@
         </div>
         <hr class="mt-6 border mx-4">
 
-        <div class="flex items-center justify-between px-6">
-          <div>
-            <h3 class="text-2xl mt-8 mb-1">Humidity</h3>
-            <img src="images/humidity.svg" alt="" class="w-12">
-          </div>
-
-          <div class="degreetemp">
-            <span class="text-2xl humidity">75</span>
-            <span class="text-2xl">%</span>
-
-          </div>
+        <div class="flex items-center justify-between p-6">
+          <div id="map" class="h-64 w-full"></div>
         </div>
-
-
       </div>
 
       <div class="md:col-start-2 md:col-span-2 md:row-span-1 shadow-md bg-white rounded-md">
-        <p class="text-3xl">Wind</p>
-        <p class="text-3xl">Wind</p>
-        <p class="text-3xl">Wind</p>
 
+        <div>
+          <h3 class="text-2xl mt-8 mb-1">Humidity</h3>
+          <img src="images/humidity.svg" alt="" class="w-12">
+        </div>
+        <div class="degreetemp">
+          <span class="text-2xl humidity">75</span>
+          <span class="text-2xl">%</span>
+        </div>
       </div>
 
       <div class="md:col-start-2 md:col-span-2 md:row-span-2 shadow-md bg-white rounded-md">
