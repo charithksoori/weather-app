@@ -13,7 +13,7 @@ body {
 }
 
 .backimg {
-  background: linear-gradient(to right bottom, #007fff, #0059b2 120%);
+  background: linear-gradient(to bottom, #0059b2, #fff 120%);
 }
 
 .back {
