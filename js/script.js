@@ -1,27 +1,3 @@
-// Map
-const map = L.map("map").setView([51.505, -0.09], 13);
-
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
-
-// L.marker([51.5, -0.09])
-//   .addTo(map)
-//   .bindPopup("A pretty CSS popup.<br> Easily customizable.")
-//   .openPopup();
-
-const marker = L.marker([0, 0]).addTo(map);
-
-navigator.geolocation.getCurrentPosition(function (pos) {
-  const lat = pos.coords.latitude;
-  const long = pos.coords.longitude;
-  marker.setLatLng([lat, long]).update();
-  map.setView([lat, long], 13);
-});
-
-// ===================================================================================================================
-
 const btn = document.querySelector(".hamburger");
 const list = document.querySelector(".nav-list");
 
@@ -67,14 +43,13 @@ function onTabClick(e) {
 }
 
 // Weather API
+const searchBox = document.querySelector(".search");
+const searchBtn = document.querySelector(".btn");
+const imgBox = document.querySelector(".img");
 
 const apiKey = "1258b95ec12041c5856171928231505";
 const apiUrl =
   "http://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
-
-const searchBox = document.querySelector(".search");
-const searchBtn = document.querySelector(".btn");
-const imgBox = document.querySelector(".img");
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city);
@@ -83,11 +58,54 @@ async function checkWeather(city) {
 
   document.querySelector(".city").innerText = data.location.name;
   document.querySelector(".temp").innerText = data.current.temp_c;
+  document.querySelector(".feelsLikeTemp").innerText = data.current.feelslike_c;
   document.querySelector(".condition").innerText = data.current.condition.text;
   document.querySelector(".humidity").innerText = data.current.humidity;
+  document.querySelector(".pressure").innerText = data.current.pressure_mb;
+  document.querySelector(".wind").innerText = data.current.wind_kph;
+  document.querySelector(".visibility").innerText = data.current.vis_km;
+  document.querySelector(".uv").innerText = data.current.uv;
   imgBox.src = data.current.condition.icon;
+
+  const lt = data.location.lat;
+  const lng = data.location.lon;
+  console.log(lt, lng);
+  marker.setLatLng([lt, lng]).update();
+  map.setView([lt, lng], 13);
 }
 
-searchBtn.addEventListener("click", () => {
-  checkWeather(searchBox.value);
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  const city = searchBox.value;
+  console.log(city);
+  checkWeather(city);
 });
+
+//searchBtn.addEventListener("click", checkWeather);
+
+// ==================================================================================================================
+// Map
+const map = L.map("map").setView([51.505, -0.09], 13);
+
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+// L.marker([51.5, -0.09])
+//   .addTo(map)
+//   .bindPopup("A pretty CSS popup.<br> Easily customizable.")
+//   .openPopup();
+
+const marker = L.marker([0, 0]).addTo(map);
+
+navigator.geolocation.getCurrentPosition(function (pos) {
+  const lat = pos.coords.latitude;
+  const long = pos.coords.longitude;
+
+  console.log(lat, long);
+  marker.setLatLng([lat, long]).update();
+  map.setView([lat, long], 13);
+});
+
+// ===================================================================================================================
