@@ -43,6 +43,7 @@ function onTabClick(e) {
 }
 
 // Weather API
+
 const searchBox = document.querySelector(".search");
 const searchBtn = document.querySelector(".btn");
 const imgBox = document.querySelector(".img");
@@ -51,10 +52,16 @@ const apiKey = "1258b95ec12041c5856171928231505";
 const apiUrl =
   "http://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
 
+const forecastUrl =
+  "http://api.weatherapi.com/v1/forecast.json?key=1258b95ec12041c5856171928231505&days=4&q=";
+
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city);
   var data = await response.json();
-  console.log(data);
+
+  const res = await fetch(forecastUrl + city);
+  var forecastData = await res.json();
+  console.log(forecastData);
 
   document.querySelector(".city").innerText = data.location.name;
   document.querySelector(".temp").innerText = data.current.temp_c;
@@ -68,10 +75,36 @@ async function checkWeather(city) {
   imgBox.src = data.current.condition.icon;
 
   const lt = data.location.lat;
+
   const lng = data.location.lon;
   console.log(lt, lng);
   marker.setLatLng([lt, lng]).update();
   map.setView([lt, lng], 13);
+
+  // Forecast for hourly
+
+  for (let i = 0; i <= 23; i++) {
+    document.querySelector(`.dateHour${i}`).innerText =
+      forecastData.forecast.forecastday[0].hour[i].time;
+    document.querySelector(`.tempHour${i}`).innerText =
+      forecastData.forecast.forecastday[0].hour[i].temp_c;
+    document.querySelector(`.imgHour${i}`).src =
+      forecastData.forecast.forecastday[0].hour[i].condition.icon;
+  }
+
+  const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
+  console.log(t);
+
+  // Forecast for 3days
+
+  for (let i = 1; i <= 3; i++) {
+    document.querySelector(`.dateFore${i}`).innerText =
+      forecastData.forecast.forecastday[i].date;
+    document.querySelector(`.tempFore${i}`).innerText =
+      forecastData.forecast.forecastday[i].day.maxtemp_c;
+    document.querySelector(`.imgFore${i}`).src =
+      forecastData.forecast.forecastday[i].day.condition.icon;
+  }
 }
 
 searchBtn.addEventListener("click", (event) => {
@@ -109,3 +142,63 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 });
 
 // ===================================================================================================================
+
+async function fetchText() {
+  let url = "https://ipinfo.io/json?token=a2ad1ff7867b44";
+  let r = await fetch(url);
+  let d = await r.json();
+  const location = d.city;
+  console.log(location);
+
+  const response = await fetch(apiUrl + location);
+  var data = await response.json();
+
+  const res = await fetch(forecastUrl + location);
+  var forecastData = await res.json();
+  console.log(forecastData);
+
+  document.querySelector(".city").innerText = data.location.name;
+  document.querySelector(".temp").innerText = data.current.temp_c;
+  document.querySelector(".feelsLikeTemp").innerText = data.current.feelslike_c;
+  document.querySelector(".condition").innerText = data.current.condition.text;
+  document.querySelector(".humidity").innerText = data.current.humidity;
+  document.querySelector(".pressure").innerText = data.current.pressure_mb;
+  document.querySelector(".wind").innerText = data.current.wind_kph;
+  document.querySelector(".visibility").innerText = data.current.vis_km;
+  document.querySelector(".uv").innerText = data.current.uv;
+  imgBox.src = data.current.condition.icon;
+
+  const lt = data.location.lat;
+
+  const lng = data.location.lon;
+  console.log(lt, lng);
+  marker.setLatLng([lt, lng]).update();
+  map.setView([lt, lng], 13);
+
+  // Forecast for hourly
+
+  for (let i = 0; i <= 23; i++) {
+    document.querySelector(`.dateHour${i}`).innerText =
+      forecastData.forecast.forecastday[0].hour[i].time;
+    document.querySelector(`.tempHour${i}`).innerText =
+      forecastData.forecast.forecastday[0].hour[i].temp_c;
+    document.querySelector(`.imgHour${i}`).src =
+      forecastData.forecast.forecastday[0].hour[i].condition.icon;
+  }
+
+  const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
+  console.log(t);
+
+  // Forecast for 3days
+
+  for (let i = 1; i <= 3; i++) {
+    document.querySelector(`.dateFore${i}`).innerText =
+      forecastData.forecast.forecastday[i].date;
+    document.querySelector(`.tempFore${i}`).innerText =
+      forecastData.forecast.forecastday[i].day.maxtemp_c;
+    document.querySelector(`.imgFore${i}`).src =
+      forecastData.forecast.forecastday[i].day.condition.icon;
+  }
+}
+
+fetchText();
