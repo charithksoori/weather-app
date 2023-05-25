@@ -18,7 +18,7 @@ const panels = document.querySelectorAll(".panel");
 tabs.forEach((tab) => tab.addEventListener("click", onTabClick));
 
 // Hamburger button listener
-btn.addEventListener("click", navToggle);
+// btn.addEventListener("click", navToggle);
 
 function onTabClick(e) {
   // Deactivate all tabs
@@ -42,7 +42,36 @@ function onTabClick(e) {
     .classList.remove("hidden");
 }
 
-// Weather API
+// -----------------------------------For features---------------------------------
+const slider = document.querySelectorAll(".tabs");
+const box = document.querySelectorAll(".panels");
+
+// Tabs menu event listener
+slider.forEach((tabs) => tabs.addEventListener("click", onClick));
+
+function onClick(e) {
+  // Deactivate all tabs
+  slider.forEach((tabs) => {
+    tabs.children[0].classList.remove(
+      "border-lightBlue",
+      "border-b-4",
+      "md:border-b-0"
+    );
+  });
+
+  // Hide all panels
+  box.forEach((panels) => panels.classList.add("hidden"));
+
+  // Activate a new tab and panel based on the target
+  e.target.classList.add("border-lightBlue", "border-b-4");
+  const classStr = e.target.getAttribute("data-target");
+  document
+    .getElementById("box")
+    .getElementsByClassName(classStr)[0]
+    .classList.remove("hidden");
+}
+
+// Weather API=====================================================================
 
 const searchBox = document.querySelector(".search");
 const searchBtn = document.querySelector(".btn");
