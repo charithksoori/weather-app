@@ -52,14 +52,14 @@
           </button>
         </div>
         <!-- nav-list -->
-        <div class="nav-list absolute hidden p-6 rounded-lg bg-slate-800 left-6 right-6 top-16 z-100 lg:hidden ">
+        <div class="nav-list absolute hidden p-6 rounded-lg bg-[#132F4C] left-6 right-6 top-16 z-100 lg:hidden ">
           <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm ">
             <a href="#features" class="w-full text-center">Features</a>
             <a href="#testimonials" class="w-full text-center">Testimonials</a>
             <a href="#pricing" class="w-full text-center">Pricing</a>
             <a href="#contact" class="w-full text-center">Contact Us</a>
             <a href="#" class="w-full pt-6 border-t border-gray-400 text-center">Login</a>
-            <a href="#" class="w-full py-3 rounded-full bg-blue-500 text-center">Sign Up</a>
+            <a href="#" class="w-full py-3 rounded-full bg-[#007fff] text-center">Sign Up</a>
           </div>
         </div>
       </div>
@@ -70,17 +70,15 @@
   <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <section class="section-hero">
-    <div class="container mx-auto max-w-6xl pt-16">
+    <div class="container mx-auto max-w-6xl pt-16 px-4 md:px-0">
       <h1 class="text-5xl font-semibold">Provide you a <span class="headingback">world wide</span>
         weather forecast</h1>
     </div>
+
     <div class="hero container max-w-6xl mx-auto items-center my-12">
-
-
       <!-- <input type="search" value="" class="search border w-96">
       <button class="btn border-2">Search</button> -->
-
-      <form>
+      <form class="px-4 md:px-0">
         <label for="default-search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div class="relative">
@@ -95,7 +93,7 @@
             class="search block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter city here" required>
           <button type="submit"
-            class="btn text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            class="btn text-white absolute right-2.5 bottom-2.5 bg-[#0059b2] hover:bg-[#007fff] transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
         </div>
       </form>
 
@@ -108,20 +106,20 @@
 
   <!-- Hero-Weather -->
 
-  <section class="bg-gradient-to-br from-[#0059b2] via-[#007fff] to-[#fff] p-8">
+  <section class="bg-[#F3F6F9] p-8">
 
     <div class="grid md:grid-cols-3 gap-4 mt-12 container mx-auto max-w-6xl">
-      <div class="md:col-start-1 md:col-span-1 md:row-span-3 shadow-md bg-white rounded-md flex flex-col">
-        <div class="flex justify-between gap-8 px-6 pt-6 ">
+      <div class="md:col-start-1 md:col-span-1 md:row-span-3 shadow-md bg-white rounded-md flex flex-col gap-2">
+        <div class="flex justify-between gap-8 px-6 mt-10 ">
           <h2 class="text-3xl font-medium">Today</h2>
           <img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-1/3 img">
         </div>
 
         <div class="ml-8">
-          <h3 class="text-4xl font-semibold mb-4 city uppercase"></h3>
-          <p class="condition mb-2 text-xl"></p>
+          <h3 class="text-4xl font-semibold mb-4 city uppercase">Colombo</h3>
+          <p class="condition mb-2 text-xl">Sunny</p>
           <div class="degreetemp">
-            <span class="text-7xl temp"></span>
+            <span class="text-7xl temp">26</span>
             <span class="text-5xl">&deg;</span>
             <span class="text-5xl ">C</span>
           </div>
@@ -129,81 +127,93 @@
         <hr class="mt-6 border mx-4">
 
         <div class="flex items-center justify-between p-6">
-          <div id="map" class="h-64 w-full"></div>
+          <div id="map" class="h-72 w-full"></div>
+        </div>
+
+        <div class="bg-[#F3F6F9]">
+          <div class="content px-8 text-xl font-medium mt-8 leading-8">
+            <p>Find Hourly Forecast without plan your journey</p>
+          </div>
+          <a href="#hourly"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 relative left-72 -top-6 font-medium hover:translate-x-2 transition-all">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+          </a>
         </div>
       </div>
 
       <div class="md:col-start-2 md:col-span-2 md:row-span-1 shadow-md bg-white rounded-md">
-        <div class="grid grid-cols-3 gap-6 p-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 p-6">
 
-          <div class="flex flex-col rounded-md bg-gray-100 p-4 gap-1">
-            <h3 class="text-2xl">Humidity</h3>
-            <div class="flex justify-between items-center">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+            <h3 class="text-xl md:text-2xl">Humidity</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/humidity.svg" alt="" class="w-10">
               <div class="degreetemp">
-                <span class="text-2xl humidity">75</span>
-                <span class="text-2xl">%</span>
+                <span class="text-xl md:text-2xl humidity">75</span>
+                <span class="text-xl md:text-2xl">%</span>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col rounded-md bg-gray-100 p-4 gap-1">
-            <h3 class="text-2xl">Feels Like</h3>
-            <div class="flex justify-between items-center">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+            <h3 class="text-xl md:text-2xl">Feels Like</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/feelslike.svg" alt="" class="w-10">
               <div class="degreetemp">
-                <span class="text-2xl feelsLikeTemp">36</span>
-                <span class="text-2xl">&deg;</span>
-                <span class="text-2xl ">C</span>
+                <span class="text-xl md:text-2xl feelsLikeTemp">36</span>
+                <span class="text-xl md:text-2xl">&deg;</span>
+                <span class="text-xl md:text-2xl ">C</span>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col rounded-md bg-gray-100 p-4 gap-1">
-            <h3 class="text-2xl">Wind</h3>
-            <div class="flex justify-between items-center">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+            <h3 class="text-xl md:text-2xl">Wind</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/winds.svg" alt="" class="w-10">
               <div class="degreetemp">
-                <span class="text-2xl wind">17</span>
-                <span class="text-2xl">km/h</span>
+                <span class="text-xl md:text-2xl wind">17</span>
+                <span class="text-xl md:text-2xl">km/h</span>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col  rounded-md bg-gray-100 p-4 gap-1">
-            <h3 class="text-2xl">Pressure</h3>
-            <div class="flex justify-between items-center">
+          <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+            <h3 class="text-xl md:text-2xl">Pressure</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/pressure.svg" alt="" class="w-10">
               <div class="degreetemp">
-                <span class="text-2xl pressure">1012</span>
-                <span class="text-2xl">hPa</span>
+                <span class="text-xl md:text-2xl pressure">1012</span>
+                <span class="text-xl md:text-2xl">hPa</span>
               </div>
             </div>
           </div>
-          <div class="flex flex-col rounded-md bg-gray-100 p-4 gap-1">
-            <h3 class="text-2xl">UV</h3>
-            <div class="flex justify-between items-center">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+            <h3 class="text-xl md:text-2xl">UV</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/uvs.svg" alt="" class="w-10">
               <div class="degreetemp">
-                <span class="text-2xl uv">8</span>
+                <span class="text-xl md:text-2xl uv">8</span>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col  rounded-md bg-gray-100 p-4 gap-1">
-            <h3 class="text-2xl">Visibility</h3>
-            <div class="flex justify-between items-center">
+          <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+            <h3 class="text-xl md:text-2xl">Visibility</h3>
+            <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/visibility.svg" alt="" class="w-10">
               <div class="degreetemp">
-                <span class="text-2xl visibility">10</span>
-                <span class="text-2xl">km</span>
+                <span class="text-xl md:text-2xl visibility">10</span>
+                <span class="text-xl md:text-2xl">km</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="md:col-start-2 md:col-span-2 md:row-span-2 shadow-md bg-white rounded-md">
+      <div class="md:col-start-2 md:col-span-2 md:row-span-2 shadow-md bg-white rounded-md" id="hourly">
 
         <!-- 
         <div class="grid grid-cols-3 md:grid-cols-5 gap-4 p-8">
@@ -254,8 +264,9 @@
           </div>
         </div> -->
         <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <div class="tabs-menu" id="tabs">
-          <div class="containr relative my-6 px-6 ">
+        <section class="section-tabs" id="tab"></section>
+        <div class="tabs-menu" id="tab">
+          <div class="container relative my-6 px-6 ">
             <div class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:space-x-10 md:flex-row">
               <div
                 class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tab cursor-pointer"
@@ -281,10 +292,10 @@
             <div class="container-mx-auto" id="panels">
               <!-- panel 1 -->
               <div class="flex flex-col md:flex-row panel panel-1">
-                <div class="grid grid-cols-3 md:grid-cols-4 gap-4 p-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                   <div class="shadow-md rounded-xl flex flex-col items-center py-4">
                     <div class="dateHour0 text-center font-medium px-4">2023/05/25 5.00am</div>
-                    <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="imgHour0"></div>
+                    <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour0"></div>
                     <div class="font-semibold">
                       <span class="text-2xl tempHour0">36</span>
                       <span class="text-2xl">&deg;</span>
@@ -360,11 +371,12 @@
               </div>
 
               <!-- panel 2 -->
-              <div class="flex flex-col md:flex-row panel panel-2">
-                <div class="grid grid-cols-3 md:grid-cols-4 gap-4 p-4">
+              <div class="flex flex-col hidden md:flex-row panel panel-2">
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                   <div class="shadow-md rounded-xl flex flex-col items-center py-4">
                     <div class="dateHour8 text-center font-medium px-4">2023/05/25 5.00am</div>
-                    <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="imgHour8"></div>
+                    <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour8"></div>
                     <div class="font-semibold">
                       <span class="text-2xl tempHour8">36</span>
                       <span class="text-2xl">&deg;</span>
@@ -440,11 +452,11 @@
               </div>
 
               <!-- panel 3 -->
-              <div class="flex flex-col md:flex-row panel panel-3">
-                <div class="grid grid-cols-3 md:grid-cols-4 gap-4 p-4">
+              <div class="flex flex-col hidden md:flex-row panel panel-3">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                   <div class="shadow-md rounded-xl flex flex-col items-center py-4">
                     <div class="dateHour16 text-center font-medium px-4">2023/05/25 5.00am</div>
-                    <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="imgHour16"></div>
+                    <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour16"></div>
                     <div class="font-semibold">
                       <span class="text-2xl tempHour16">36</span>
                       <span class="text-2xl">&deg;</span>
@@ -673,7 +685,7 @@
 
       <!-- panels -->
 
-      <div class="container-mx-auto" id="box">
+      <div class="container mx-auto" id="box">
         <!-- panel 1 -->
         <div class="flex flex-col py-5 md:flex-row md:space-x-7 panels panels-1">
           <!-- image -->
