@@ -5,7 +5,10 @@
 body {
   color: #1a2027;
   /* #F3F6F9
-  #E7EBF0 */
+  #E7EBF0 
+  #003A75
+  #001E3C
+  #0A1929*/
 }
 
 .headingback {
@@ -15,7 +18,7 @@ body {
 }
 
 .backimg {
-  background: linear-gradient(to bottom, #007fff, #fff 120%);
+  background: linear-gradient(to right bottom, #007fff, #0059b2 120%);
 }
 
 .back {

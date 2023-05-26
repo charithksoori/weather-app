@@ -84,12 +84,16 @@ const apiUrl =
 const forecastUrl =
   "http://api.weatherapi.com/v1/forecast.json?key=1258b95ec12041c5856171928231505&days=4&q=";
 
+const searchUrl =
+  "http://api.weatherapi.com/v1/search.json?key=1258b95ec12041c5856171928231505&q=";
+
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city);
   var data = await response.json();
 
   const res = await fetch(forecastUrl + city);
   var forecastData = await res.json();
+
   console.log(forecastData);
 
   document.querySelector(".city").innerText = data.location.name;
@@ -161,28 +165,39 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 const marker = L.marker([0, 0]).addTo(map);
 
-navigator.geolocation.getCurrentPosition(function (pos) {
-  const lat = pos.coords.latitude;
-  const long = pos.coords.longitude;
+// navigator.geolocation.getCurrentPosition(function (pos) {
+//   const lat = pos.coords.latitude;
+//   const long = pos.coords.longitude;
 
-  console.log(lat, long);
-  marker.setLatLng([lat, long]).update();
-  map.setView([lat, long], 13);
-});
+//   console.log(lat, long);
+//   marker.setLatLng([lat, long]).update();
+//   map.setView([lat, long], 13);
+// });
 
 // ===================================================================================================================
 
-async function fetchText() {
-  let url = "https://ipinfo.io/json?token=a2ad1ff7867b44";
-  let r = await fetch(url);
-  let d = await r.json();
-  const location = d.city;
-  console.log(location);
+async function fetchText(lat, long) {
+  // let url = "https://ipinfo.io/json?token=a2ad1ff7867b44";
+  // let r = await fetch(url);
+  // let d = await r.json();
+  // const location = d.city;
+  // console.log(location);
 
-  const response = await fetch(apiUrl + location);
+  const alt = lat;
+  const ln = long;
+  console.log("Show", alt, ln);
+
+  const search = await fetch(searchUrl + alt.toString() + "," + ln.toString());
+  var cityData = await search.json();
+
+  const cityName = cityData[0].name;
+
+  console.log(cityName);
+
+  const response = await fetch(apiUrl + cityName);
   var data = await response.json();
 
-  const res = await fetch(forecastUrl + location);
+  const res = await fetch(forecastUrl + cityName);
   var forecastData = await res.json();
   console.log(forecastData);
 
@@ -230,4 +245,10 @@ async function fetchText() {
   }
 }
 
-fetchText();
+navigator.geolocation.getCurrentPosition(function (pos) {
+  const lat = pos.coords.latitude;
+  const long = pos.coords.longitude;
+
+  console.log(lat, long);
+  fetchText(lat, long);
+});
