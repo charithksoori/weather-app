@@ -87,12 +87,19 @@ const forecastUrl =
 const searchUrl =
   "http://api.weatherapi.com/v1/search.json?key=1258b95ec12041c5856171928231505&q=";
 
+const historyUrl =
+  "http://api.weatherapi.com/v1/history.json?key=1258b95ec12041c5856171928231505&q=";
+
+// ---------------------------------------------Date fetching----------------------------
+
+// -------------------------------------------------------------------------
+
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city);
   var data = await response.json();
 
-  const res = await fetch(forecastUrl + city);
-  var forecastData = await res.json();
+  const resForecast = await fetch(forecastUrl + city);
+  var forecastData = await resForecast.json();
 
   console.log(forecastData);
 
@@ -145,6 +152,13 @@ searchBtn.addEventListener("click", (event) => {
   const city = searchBox.value;
   console.log(city);
   checkWeather(city);
+
+  submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const selectDate = document.getElementById("dob").value;
+    console.log("Date", selectDate);
+    getHistoryData(city, selectDate);
+  });
 });
 
 //searchBtn.addEventListener("click", checkWeather);
@@ -252,3 +266,55 @@ navigator.geolocation.getCurrentPosition(function (pos) {
   console.log(lat, long);
   fetchText(lat, long);
 });
+
+// Calender===========================================================================================================
+
+let date = new Date();
+let month = date.getMonth() + 1;
+let year = date.getUTCFullYear();
+let pastDate = date.getDate() - 5;
+let currentDate = date.getDate() - 1;
+
+if (month < 10) {
+  month = "0" + month;
+}
+if (pastDate < 10) {
+  pastDate = "0" + pastDate;
+}
+console.log(date);
+
+let minDate = year + "-" + month + "-" + pastDate;
+let maxDate = year + "-" + month + "-" + currentDate;
+console.log("min", minDate);
+console.log("max", maxDate);
+document.getElementById("dob").setAttribute("min", minDate);
+document.getElementById("dob").setAttribute("max", maxDate);
+
+// function viewdate() {
+//   const selectDate = document.getElementById("dob").value;
+//   console.log("Date", selectDate);
+// }
+
+const submitBtn = document.querySelector(".subButton");
+
+async function getHistoryData(city, selectDate) {
+  console.log("in his", city, selectDate);
+
+  const resHistory = await fetch(
+    historyUrl + city + "&dt=" + selectDate.toString()
+  );
+  var historyData = await resHistory.json();
+
+  console.log(historyData);
+  console.log(historyData.forecast.forecastday[0].date);
+
+  document.querySelector(".dateHistory").innerText =
+    historyData.forecast.forecastday[0].date;
+  document.querySelector(".tempHistory").innerText =
+    historyData.forecast.forecastday[0].day.maxtemp_c;
+  document.querySelector(".imgHistory").src =
+    historyData.forecast.forecastday[0].day.condition.icon;
+
+  const li = document.querySelector(".historyList");
+  li.classList.toggle("hidden");
+}
