@@ -281,7 +281,6 @@ if (month < 10) {
 if (pastDate < 10) {
   pastDate = "0" + pastDate;
 }
-console.log(date);
 
 let minDate = year + "-" + month + "-" + pastDate;
 let maxDate = year + "-" + month + "-" + currentDate;
