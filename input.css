@@ -33,7 +33,7 @@ body {
 .back {
   /* background-color: #99ccf3; */
   /* background-color: #173a5e; */
-  background: linear-gradient(85deg, #132f4c 0%, #173a5e 100%);
+  /* background: linear-gradient(to right bottom, #132f4c, #173a5e); */
 }
 
 .b {

@@ -153,16 +153,19 @@
           <div id="map" class="h-72 w-full"></div>
         </div>
 
-        <div class="b dark:bg-lightGrey">
-          <div class="content px-8 text-xl font-light mt-6 leading-8 text-white">
+        <div class="bg-gradient-to-br from-[#007fff] to-[#0059b2] ">
+          <div class="content px-8 text-xl font-light py-6 leading-8 text-white dark:bg-lightGrey">
             <p>Check Hourly Forecast without plan your journey</p>
           </div>
-          <a href="#hourly"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 relative left-72 -top-6 font-medium hover:translate-x-2 transition-all text-white">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-            </svg>
-          </a>
+          <div class="dark:bg-lightGrey">
+            <a href="#hourly"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 relative left-72 -top-6 font-medium hover:translate-x-2 transition-all text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
         </div>
       </div>
 
@@ -267,9 +270,10 @@
 
             <!-- panels -->
 
-            <div class="container mx-auto rounded-md back text-white dark:bg-midGrey" id="panels">
+            <div class="container mx-auto rounded-md bg-gradient-to-br from-[#132f4c] to-[#173a5e] text-white "
+              id="panels">
               <!-- panel 1 -->
-              <div class="flex flex-col md:flex-row panel panel-1">
+              <div class="flex flex-col md:flex-row panel panel-1 dark:bg-darkGrey">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                   <div class="shadow-2xl rounded-xl flex flex-col items-center py-4">
                     <div class="dateHour0 text-center font-medium px-4">2023/05/25 5.00am</div>
@@ -357,7 +361,7 @@
               </div>
 
               <!-- panel 2 -->
-              <div class="flex flex-col hidden md:flex-row panel panel-2">
+              <div class="flex flex-col hidden md:flex-row panel panel-2 dark:bg-darkGrey">
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                   <div class="shadow-2xl rounded-xl flex flex-col items-center py-4">
@@ -446,7 +450,7 @@
               </div>
 
               <!-- panel 3 -->
-              <div class="flex flex-col hidden md:flex-row panel panel-3">
+              <div class="flex flex-col hidden md:flex-row panel panel-3 dark:bg-darkGrey">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                   <div class="shadow-2xl rounded-xl flex flex-col items-center py-4">
                     <div class="dateHour16 text-center font-medium px-4">2023/05/25 5.00am</div>
@@ -628,7 +632,7 @@
     <!-- tabs -->
     <div class="container mx-auto mt-16 px-6 py-16">
       <h2 class="mb-6 text-4xl font-extrabold text-center">Features</h2>
-      <p class="text-center mx-auto max-w-md">
+      <p class="text-center mx-auto max-w-md tracking-wider">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus placeat vitae, mollitia ipsam exercitationem
         necessitatibus.
       </p>
