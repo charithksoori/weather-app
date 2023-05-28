@@ -25,8 +25,8 @@
   <title>Weather App</title>
 </head>
 
-<body class="overflow-x-hidden">
-  <header class="navbar">
+<body class="dark:bg-darkGrey dark:text-textGrey">
+  <header class="navbar dark:bg-darkGrey">
     <nav>
       <div class="flex items-center justify-between mx-auto px-6 md:px-20 h-16 relative ">
         <div class="left-menu flex items-center gap-8">
@@ -40,11 +40,29 @@
             <a href="#contact" class="hover:text-[#0059b2] transition-all">Contact Us</a>
           </div>
         </div>
-        <div class="right-menu hidden items-center font-medium justify-center space-x-6 lg:flex md:text-lg">
-          <a href="#" class="text-[#555] hover:text-black ">Login</a>
-          <a href="#" class="bg-[#007FFF] rounded-lg px-5 py-2.5 text-white hover:bg-[#0059b2] transition-all">Sign
+        <div class="right-menu items-center font-medium justify-center space-x-6 flex md:text-lg">
+          <a href="#" class="text-[#555] hover:text-black hidden xl:flex dark:text-white ">Login</a>
+          <a href="#"
+            class="hidden xl:flex bg-[#007FFF] rounded-lg px-5 py-2.5 text-white hover:bg-[#0059b2] transition-all">Sign
             Up</a>
+          <!-- Dark Mode Button -->
+          <button id="theme-toggle"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2 5">
+            <!-- Dark SVG Icon -->
+            <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <!-- Light SVG Icon -->
+            <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
         </div>
+
         <!-- Hamburger -->
         <div class="lg:hidden">
           <button id="menu-btn" type="button" class=" z-40 block hamburger lg:hidden focus:outline-none">
@@ -65,6 +83,7 @@
           </div>
         </div>
       </div>
+
     </nav>
   </header>
 
@@ -109,10 +128,11 @@
 
   <!-- Hero-Weather -->
 
-  <section class="backimg ">
+  <section class="backimg dark:bg-darkGrey">
 
     <div class="grid md:grid-cols-3 gap-4 mt-12 container mx-auto max-w-6xl py-8">
-      <div class="md:col-start-1 md:col-span-1 md:row-span-3 shadow-md bg-white rounded-md flex flex-col gap-2">
+      <div
+        class="md:col-start-1 md:col-span-1 md:row-span-3 shadow-md bg-white dark:bg-midGrey rounded-md flex flex-col gap-2 dark:text-white">
         <div class="flex justify-between gap-8mt-10 ">
           <h2 class="text-2xl font-medium  p-8 ">Today</h2>
           <img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-1/3 img pt-8 pr-4">
@@ -133,7 +153,7 @@
           <div id="map" class="h-72 w-full"></div>
         </div>
 
-        <div class="b">
+        <div class="b dark:bg-lightGrey">
           <div class="content px-8 text-xl font-light mt-6 leading-8 text-white">
             <p>Check Hourly Forecast without plan your journey</p>
           </div>
@@ -146,10 +166,10 @@
         </div>
       </div>
 
-      <div class="md:col-start-2 md:col-span-2 md:row-span-1 shadow-md bg-white rounded-md">
+      <div class="md:col-start-2 md:col-span-2 md:row-span-1 shadow-md bg-white dark:bg-midGrey rounded-md">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 p-6">
 
-          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">Humidity</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/humidity.svg" alt="" class="w-10">
@@ -160,7 +180,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">Feels Like</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/feelslike.svg" alt="" class="w-10">
@@ -172,7 +192,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">Wind</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/winds.svg" alt="" class="w-10">
@@ -183,7 +203,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+          <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">Pressure</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/pressure.svg" alt="" class="w-10">
@@ -193,7 +213,7 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+          <div class="flex flex-col rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">UV</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/uvs.svg" alt="" class="w-10">
@@ -203,7 +223,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left">
+          <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">Visibility</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <img src="images/visibility.svg" alt="" class="w-10">
@@ -216,57 +236,12 @@
         </div>
       </div>
 
-      <div class="md:col-start-2 md:col-span-2 md:row-span-2 shadow-md bg-white rounded-md" id="hourly">
+      <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-        <!-- 
-        <div class="grid grid-cols-3 md:grid-cols-5 gap-4 p-8">
-          <div class="h-64 border-2 rounded-xl flex flex-col justify-between items-center py-8">
-            <div class="dateHour1 text-center font-medium">2023/05/25 5.00am</div>
-            <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour1"></div>
-            <div class="font-semibold">
-              <span class="text-2xl tempHour1">36</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </div>
-          <div class="h-64 border-2 rounded-xl flex flex-col justify-between items-center py-8">
-            <div class="dateHour2 text-center font-medium">2023/05/25 5.00am</div>
-            <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour2"></div>
-            <div class="font-semibold">
-              <span class="text-2xl tempHour2">36</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </div>
-          <div class="h-64 border-2 rounded-xl flex flex-col justify-between items-center py-8">
-            <div class="dateHour3 text-center font-medium">2023/05/25 5.00am</div>
-            <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour3"></div>
-            <div class="font-semibold">
-              <span class="text-2xl tempHour3">36</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </div>
-          <div class="h-64 border-2 rounded-xl flex flex-col justify-between items-center py-8">
-            <div class="dateHour4 text-center font-medium">2023/05/25 5.00am</div>
-            <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour4"></div>
-            <div class="font-semibold">
-              <span class="text-2xl tempHour4">36</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </div>
-          <div class="h-64 border-2 rounded-xl flex flex-col justify-between items-center py-8">
-            <div class="dateHour5 text-center font-medium">2023/05/25 5.00am</div>
-            <div><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHour5"></div>
-            <div class="font-semibold">
-              <span class="text-2xl tempHour5">36</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </div>
-        </div> -->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="md:col-start-2 md:col-span-2 md:row-span-2 shadow-md bg-white rounded-md dark:bg-midGrey" id="hourly">
+
+
+
         <section class="section-tabs" id="tab"></section>
         <div class="tabs-menu" id="tab">
           <div class="container relative my-6 px-6">
@@ -292,7 +267,7 @@
 
             <!-- panels -->
 
-            <div class="container mx-auto rounded-md back text-white" id="panels">
+            <div class="container mx-auto rounded-md back text-white dark:bg-midGrey" id="panels">
               <!-- panel 1 -->
               <div class="flex flex-col md:flex-row panel panel-1">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
@@ -574,7 +549,7 @@
 
     <div class="container grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-24 mt-12 mx-auto py-8">
       <!-- History -->
-      <div class="history bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm">
+      <div class="history bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm dark:bg-lightGrey dark:border-none">
         <h2 class="text-3xl font-medium p-8 border-b">History</h2>
         <p class="px-8 mt-8">Select a date</p>
         <div class="date-finder mx-auto flex items-center justify-between px-16 mt-4 pb-8 w-full text-lg">
@@ -598,7 +573,7 @@
       </div>
 
       <!-- Forecast -->
-      <div class="forecast bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm ">
+      <div class="forecast bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm dark:bg-lightGrey dark:border-none">
         <h2 class="text-3xl font-medium p-8 border-b">Forecast</h2>
         <ul class="w-full text-lg font-medium text-center p-4">
           <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
@@ -649,9 +624,9 @@
 
   <!-- Features -->
 
-  <section class="section-features" id="features">
+  <section class="section-features dark:bg-midGrey" id="features">
     <!-- tabs -->
-    <div class="container mx-auto mt-16 px-6 pt-20">
+    <div class="container mx-auto mt-16 px-6 py-16">
       <h2 class="mb-6 text-4xl font-extrabold text-center">Features</h2>
       <p class="text-center mx-auto max-w-md">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus placeat vitae, mollitia ipsam exercitationem
@@ -662,8 +637,8 @@
 
   <section class="section-tabs" id="tabs"></section>
   <!-- panels -->
-  <div class="tabs-menu" id="tabs">
-    <div class="containr relative mx-auto my-6 mb-32 mt-12 px-6">
+  <div class="tabs-menu dark:bg-midGrey" id="tabs">
+    <div class="containr relative mx-auto py-6 mb-32 pt-12 px-6">
       <div class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:space-x-10 md:flex-row">
         <div
           class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tabs cursor-pointer"
@@ -747,14 +722,14 @@
   <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <section id="testimonials">
-    <div class="bg-[#F3F6F9] pt-24">
+    <div class="bg-[#F3F6F9] pt-24 dark:bg-lowGrey">
       <div class="container mx-auto px-6 pt-12 pb-80 md:pb-96">
         <div class="relative flex flex-col w-full space-y-6 md:flex-row md:space-y-0 md:space-x-12">
           <!-- Quotes -->
           <img src="images/bg-quotes.png" alt="" class="absolute left-1 -top-2 w-10 md:-top-16 md:w-20">
 
           <!-- Box 1 -->
-          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3">
+          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-testColor">
             <p class="text-sm leading-5 md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
               molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
@@ -769,7 +744,7 @@
           </div>
 
           <!-- Box 2 -->
-          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3">
+          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-testColor">
             <p class="text-sm leading-5 md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
               molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
@@ -784,7 +759,7 @@
           </div>
 
           <!-- Box 3 -->
-          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3">
+          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-testColor">
             <p class="text-sm leading-5 md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
               molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
@@ -830,7 +805,7 @@
 
   <!-- Pricing -->
 
-  <section class="bg-white md:pt-20 -mt-24 md:-mt-0" id="pricing">
+  <section class="bg-white md:pt-20 -mt-24 md:-mt-0 dark:bg-darkBlue" id="pricing">
     <div class="container mx-auto max-w-6xl">
       <div class=" py-8 px-4 mx-auto max-w-screen-xl md:py-2 md:px-6">
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
@@ -982,12 +957,12 @@
 
   <!-- Contact-->
 
-  <section class="bg-[#F3F6F9] mt-24" id="contact">
+  <section class="bg-[#F3F6F9] dark:bg-darkBlue mt-24" id="contact">
     <div class="py-8 md:py-16 px-4 mx-auto max-w-screen-md bg-white">
       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 mt-6">Contact Us
       </h2>
       <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue?
-        Want to send feedback about a feature option? Need details about our Upcoming plans? Let us know.</p>
+        Want to send feedback about a feature option? Need details about our upcoming plans? Let us know.</p>
       <form action="#" class="space-y-8">
         <div>
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
@@ -1019,7 +994,7 @@
 
 
   <footer>
-    <div class="border-t-2 mt-20 py-16 px-4 bg-[#132f4c] text-white">
+    <div class="border-t-2 mt-20 py-16 px-4 bg-[#132F4C] text-white dark:bg-darkBlue">
       <div
         class="flex flex-col lg:flex-row container max-w-6xl mx-auto justify-between items-center space-y-16 md:flex-row md:space-y-0 md:items-start">
         <!-- footer-logo -->
@@ -1058,8 +1033,6 @@
             </div>
           </div>
         </div>
-
-
 
         <!-- footer-social-links -->
         <div class="flex space-x-4 md:flex-col lg:flex-row md:space-x-0 lg:space-x-4 md:pr-8 lg:pr-0">
