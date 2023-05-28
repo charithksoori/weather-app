@@ -43,6 +43,9 @@ body {
     hsla(0, 0%, 100%, 0) 85%
   );
 }
+.trans {
+  transition: 0.3s ease-in-out all;
+}
 
 .navbar {
   position: sticky;

@@ -14,14 +14,9 @@ function navToggle() {
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
 
-// Tabs menu event listener
 tabs.forEach((tab) => tab.addEventListener("click", onTabClick));
 
-// Hamburger button listener
-// btn.addEventListener("click", navToggle);
-
 function onTabClick(e) {
-  // Deactivate all tabs
   tabs.forEach((tab) => {
     tab.children[0].classList.remove(
       "border-lightBlue",
@@ -30,10 +25,8 @@ function onTabClick(e) {
     );
   });
 
-  // Hide all panels
   panels.forEach((panel) => panel.classList.add("hidden"));
 
-  // Activate a new tab and panel based on the target
   e.target.classList.add("border-lightBlue", "border-b-4");
   const classString = e.target.getAttribute("data-target");
   document
@@ -46,11 +39,9 @@ function onTabClick(e) {
 const slider = document.querySelectorAll(".tabs");
 const box = document.querySelectorAll(".panels");
 
-// Tabs menu event listener
 slider.forEach((tabs) => tabs.addEventListener("click", onClick));
 
 function onClick(e) {
-  // Deactivate all tabs
   slider.forEach((tabs) => {
     tabs.children[0].classList.remove(
       "border-lightBlue",
@@ -59,10 +50,8 @@ function onClick(e) {
     );
   });
 
-  // Hide all panels
   box.forEach((panels) => panels.classList.add("hidden"));
 
-  // Activate a new tab and panel based on the target
   e.target.classList.add("border-lightBlue", "border-b-4");
   const classStr = e.target.getAttribute("data-target");
   document
@@ -161,8 +150,6 @@ searchBtn.addEventListener("click", (event) => {
   });
 });
 
-//searchBtn.addEventListener("click", checkWeather);
-
 // ==================================================================================================================
 // Map
 const map = L.map("map").setView([51.505, -0.09], 13);
@@ -172,21 +159,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
-// L.marker([51.5, -0.09])
-//   .addTo(map)
-//   .bindPopup("A pretty CSS popup.<br> Easily customizable.")
-//   .openPopup();
-
 const marker = L.marker([0, 0]).addTo(map);
-
-// navigator.geolocation.getCurrentPosition(function (pos) {
-//   const lat = pos.coords.latitude;
-//   const long = pos.coords.longitude;
-
-//   console.log(lat, long);
-//   marker.setLatLng([lat, long]).update();
-//   map.setView([lat, long], 13);
-// });
 
 // ===================================================================================================================
 
