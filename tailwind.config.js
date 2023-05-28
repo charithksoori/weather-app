@@ -10,10 +10,11 @@ module.exports = {
         lightGrey: "#424242",
         lowGrey: "#616161",
         grey: "#757575",
-        textGrey: "#E0E0E0",
-        darkBlue: "",
+        textGrey: "#EEEEEE",
+        darkBlue: "#1c2431",
         lightBlue: "#03a9f4",
         testColor: "#018786",
+        hoverColor: "#03DAC6",
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],

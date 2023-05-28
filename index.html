@@ -26,7 +26,7 @@
 </head>
 
 <body class="dark:bg-darkGrey dark:text-textGrey">
-  <header class="navbar dark:bg-darkGrey">
+  <header class="navbar dark:bg-darkGrey dark:shadow-none">
     <nav>
       <div class="flex items-center justify-between mx-auto px-6 md:px-20 h-16 relative ">
         <div class="left-menu flex items-center gap-8">
@@ -65,14 +65,15 @@
 
         <!-- Hamburger -->
         <div class="lg:hidden">
-          <button id="menu-btn" type="button" class=" z-40 block hamburger lg:hidden focus:outline-none">
-            <span class="hamburger-top"></span>
-            <span class="hamburger-middle"></span>
-            <span class="hamburger-bottom"></span>
+          <button id="menu-btn" type="button" class=" z-40 block hamburger lg:hidden focus:outline-none ">
+            <span class="hamburger-top dark:bg-white"></span>
+            <span class="hamburger-middle dark:bg-white"></span>
+            <span class="hamburger-bottom dark:bg-white"></span>
           </button>
         </div>
         <!-- nav-list -->
-        <div class="nav-list absolute hidden p-6 rounded-lg bg-[#132F4C] left-6 right-6 top-16 z-100 lg:hidden ">
+        <div
+          class="nav-list absolute hidden p-6 rounded-lg bg-[#132F4C] dark:bg-midGrey left-6 right-6 top-16 z-100 lg:hidden ">
           <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm ">
             <a href="#features" class="w-full text-center">Features</a>
             <a href="#testimonials" class="w-full text-center">Testimonials</a>
@@ -112,7 +113,7 @@
             </svg>
           </div>
           <input type="search" id="default-search"
-            class="search block w-full p-4 pl-10 text-md text-gray-900 border border-gray-300 rounded-lg outline-1 outline-offset-0 outline-[#1a2027] "
+            class="search block dark:bg-textGrey dark:text-darkGrey w-full p-4 pl-10 text-md text-gray-900 border border-gray-300 rounded-lg outline-1 outline-offset-0 outline-[#1a2027] "
             placeholder="Enter city here" required>
           <button type="submit"
             class="btn text-white absolute right-2.5 bottom-2.5 bg-[#0059b2] hover:bg-[#007fff] transition-all font-medium rounded-lg text-md px-4 py-2 ">Search</button>
@@ -206,7 +207,7 @@
           <div class="flex flex-col  rounded-md bg-[#E7EBF0] p-4 gap-1 text-center md:text-left dark:bg-lightGrey">
             <h3 class="text-xl md:text-2xl">Pressure</h3>
             <div class="flex flex-col md:flex-row justify-between items-center">
-              <img src="images/pressure.svg" alt="" class="w-10">
+              <img src="images/pressuref.svg" alt="" class="w-10">
               <div class="degreetemp">
                 <span class="text-xl md:text-2xl pressure">1012</span>
                 <span class="text-xl md:text-2xl">hPa</span>
@@ -555,7 +556,7 @@
         <div class="date-finder mx-auto flex items-center justify-between px-16 mt-4 pb-8 w-full text-lg">
           <input type="date" id="dob" class="border-2 p-2">
           <button type=""
-            class="subButton text-[#0059b2] hover:text-white border border-[#0059b2] hover:bg-[#0059b2] focus:ring-4 focus:outline-none focus:ring-[#0059b2] transition-all font-medium rounded-lg text-md px-4 py-2 ">Select
+            class="subButton text-[#0059b2] hover:text-white border border-[#0059b2] dark:border-white dark:text-white hover:bg-[#0059b2] focus:ring-4 focus:outline-none focus:ring-[#0059b2] transition-all font-medium rounded-lg text-md px-4 py-2 ">Select
             Date</button>
         </div>
         <ul class="w-full text-lg font-medium text-center p-4 hidden historyList">
@@ -666,7 +667,7 @@
         <div class="flex flex-col py-5 md:flex-row md:space-x-7 panels panels-1">
           <!-- image -->
           <div class="flex justify-center md:w-1/2 md:pl-60 md:-mt-2 ">
-            <img src="images/panel1.jpg" alt="" class="relative z-10 w-96">
+            <img src="images/panel1.png" alt="" class="relative z-10 w-96">
           </div>
 
           <!-- content -->
@@ -722,7 +723,7 @@
   <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <section id="testimonials">
-    <div class="bg-[#F3F6F9] pt-24 dark:bg-lowGrey">
+    <div class="bg-[#F3F6F9] pt-24 dark:bg-midGrey">
       <div class="container mx-auto px-6 pt-12 pb-80 md:pb-96">
         <div class="relative flex flex-col w-full space-y-6 md:flex-row md:space-y-0 md:space-x-12">
           <!-- Quotes -->
@@ -791,7 +792,8 @@
         <!-- Input email-->
         <div class="flex flex-col items-start space-y-6 md:flex-row md:space-y-0 md:space-x-6">
           <div class="w-full md:flex-1">
-            <input type="text" name="" id="" class="w-full px-10 py-3 rounded-full focus:outline-none"
+            <input type="text" name="" id=""
+              class="dark:bg-textGrey dark:text-darkGrey w-full px-10 py-3 rounded-full focus:outline-none"
               placeholder="johnsmith@email.com">
           </div>
           <button class="w-full p-3 px-6 rounded-full bg-[#03a9f4] md:w-56 hover:scale-95">Get Started for Free</button>
@@ -805,11 +807,12 @@
 
   <!-- Pricing -->
 
-  <section class="bg-white md:pt-20 -mt-24 md:-mt-0 dark:bg-darkBlue" id="pricing">
+  <section class="bg-white md:pt-20 -mt-24 md:-mt-0 dark:bg-darkGrey" id="pricing">
     <div class="container mx-auto max-w-6xl">
       <div class=" py-8 px-4 mx-auto max-w-screen-xl md:py-2 md:px-6">
         <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Quick and Easy Signup
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Quick and Easy
+            Signup
             for your Choice</h2>
           <p class="mb-20 font-light text-gray-500 sm:text-xl">WeatherZero.com makes it super easy to integrate our
             realtime, daily, hourly and weather forecast data, historical weather as your need with no hesitation.</p>
@@ -817,7 +820,7 @@
         <div class="space-y-8 md:grid md:grid-cols-2 sm:gap-6 md:gap-32 md:space-y-0 max-w-4xl mx-auto">
           <!-- Pricing Card -->
           <div
-            class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg shadow-md lg:p-8 hover:scale-105 transition-all ease-in-out duration-300">
+            class="dark:border-2 flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg shadow-md lg:p-8 hover:scale-105 transition-all ease-in-out duration-300">
             <h3 class="mb-4 text-2xl font-semibold">Starter</h3>
             <p class="font-light text-gray-500 sm:text-lg">Best option for personal use & for your
               daily needs</p>
@@ -883,7 +886,7 @@
               started</a>
           </div>
           <div
-            class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg shadow-md lg:p-8 hover:scale-105 transition-all ease-in-out duration-300">
+            class="dark:border-2 flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg shadow-md lg:p-8 hover:scale-105 transition-all ease-in-out duration-300">
             <h3 class="mb-4 text-2xl font-semibold">Pro+</h3>
             <p class="font-light text-gray-500 sm:text-lg">Best option for business use & for your
               travel journey</p>
@@ -957,30 +960,31 @@
 
   <!-- Contact-->
 
-  <section class="bg-[#F3F6F9] dark:bg-darkBlue mt-24" id="contact">
-    <div class="py-8 md:py-16 px-4 mx-auto max-w-screen-md bg-white">
-      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 mt-6">Contact Us
+  <section class="bg-[#F3F6F9] dark:bg-darkGrey mt-24" id="contact">
+    <div class="py-8 md:py-16 px-8 mx-auto max-w-screen-md bg-white dark:bg-midGrey dark:rounded-md">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 mt-6 dark:text-white">Contact Us
       </h2>
-      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue?
+      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl dark:text-white">Got a
+        technical issue?
         Want to send feedback about a feature option? Need details about our upcoming plans? Let us know.</p>
       <form action="#" class="space-y-8">
         <div>
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
           <input type="email" id="email"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 "
             placeholder="name@email.com" required>
         </div>
         <div>
           <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
           <input type="text" id="subject"
-            class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+            class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
             placeholder="Let us know how we can help you" required>
         </div>
         <div class="sm:col-span-2">
-          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
             message</label>
           <textarea id="message" rows="6"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             placeholder="Leave a comment..."></textarea>
         </div>
         <button type="submit"
@@ -994,7 +998,7 @@
 
 
   <footer>
-    <div class="border-t-2 mt-20 py-16 px-4 bg-[#132F4C] text-white dark:bg-darkBlue">
+    <div class="border-t-2 dark:border-t-0 mt-20 py-16 px-4 bg-[#132F4C] text-white dark:bg-midGrey">
       <div
         class="flex flex-col lg:flex-row container max-w-6xl mx-auto justify-between items-center space-y-16 md:flex-row md:space-y-0 md:items-start">
         <!-- footer-logo -->
