@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="shortcut icon" type="image/png" href="images/favicon-16x16.png" />
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -43,7 +43,7 @@
         <div class="right-menu items-center font-medium justify-center xl:space-x-8 lg:space-x-4 flex text-lg">
           <a href="#" class="text-[#555] hover:text-black hidden lg:flex dark:text-white ">Login</a>
           <a href="#"
-            class="hidden lg:flex bg-[#007FFF] rounded-lg px-5 py-2.5 text-white hover:bg-[#0059b2] transition-all">Sign
+            class="hidden lg:flex bg-[#007FFF] dark:bg-lightPurple dark:hover:bg-darkPurple rounded-lg px-5 py-2.5 text-white hover:bg-[#0059b2] transition-all">Sign
             Up</a>
           <!-- Dark Mode Button -->
           <button id="theme-toggle"
@@ -93,7 +93,8 @@
   <section class="section-hero">
     <div class="container mx-auto max-w-6xl pt-16 px-8 lg:px-0">
       <h1 class="text-5xl font-semibold">Provide you a <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-[#007fff] to-[#0059b2]">world wide</span>
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[#007fff] to-[#0059b2] dark:bg-gradient-to-r dark:from-lightGreen dark:to-darkGreen">world
+          wide</span>
         weather forecast</h1>
     </div>
 
@@ -115,7 +116,7 @@
             class="search block dark:bg-textGrey dark:text-darkGrey w-full p-4 pl-10 text-md text-gray-900 border border-gray-300 rounded-lg outline-1 outline-offset-0 outline-[#1a2027] "
             placeholder="Enter city here" required>
           <button type="submit"
-            class="btn text-white absolute right-2.5 bottom-2.5 bg-[#0059b2] hover:bg-[#007fff] transition-all font-medium rounded-lg text-md px-4 py-2 ">Search</button>
+            class="btn text-white absolute right-2.5 bottom-2.5 bg-[#0059b2] hover:bg-[#007fff] dark:bg-darkPurple dark:hover:bg-lightPurple transition-all font-medium rounded-lg text-md px-4 py-2 ">Search</button>
         </div>
       </form>
 
@@ -250,21 +251,21 @@
           <div class="container relative my-6 px-6">
             <div class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:space-x-10 md:flex-row">
               <div
-                class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-[#007fff] md:w-1/3 tab cursor-pointer"
+                class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-[#007fff] dark:hover:text-lightGreen md:w-1/3 tab cursor-pointer"
                 data-target="panel-1">
-                <div class="py-5 border-b-4 border-lightBlue" data-target="panel-1">Morning</div>
+                <div class="py-5 border-b-4 border-lightBlue dark:border-lightGreen" data-target="panel-1">Morning</div>
               </div>
 
               <div
-                class="tab2 flex justify-center text-center border-b md:border-b-0 hover:text-[#007fff] md:w-1/3 tab cursor-pointer"
+                class="tab2 flex justify-center text-center border-b md:border-b-0 hover:text-[#007fff] dark:hover:text-lightGreen md:w-1/3 tab cursor-pointer"
                 data-target="panel-2">
-                <div class="py-5" data-target="panel-2">Noon</div>
+                <div class="py-5 dark:border-lightGreen" data-target="panel-2">Noon</div>
               </div>
 
               <div
-                class="tab3 flex justify-center text-center border-b md:border-b-0 hover:text-[#007fff] md:w-1/3 tab cursor-pointer"
+                class="tab3 flex justify-center text-center border-b md:border-b-0 hover:text-[#007fff] dark:hover:text-lightGreen md:w-1/3 tab cursor-pointer"
                 data-target="panel-3">
-                <div class="py-5" data-target="panel-3">Evening</div>
+                <div class="py-5 dark:border-lightGreen" data-target="panel-3">Evening</div>
               </div>
             </div>
 
@@ -559,7 +560,7 @@
         <div class="date-finder mx-auto flex items-center justify-between px-16 mt-4 pb-8 w-full text-lg">
           <input type="date" id="dob" class="border-2 p-2">
           <button type=""
-            class="subButton text-[#0059b2] hover:text-white border border-[#0059b2] dark:border-white dark:text-white hover:bg-[#0059b2] focus:ring-4 focus:outline-none focus:ring-[#0059b2] transition-all font-medium rounded-lg text-md px-4 py-2 ">Select
+            class="subButton text-[#0059b2] dark:bg-lightPurple dark:hover:bg-darkPurple hover:text-white border border-[#0059b2] dark:border-lightPurple dark:text-white hover:bg-[#0059b2] focus:ring-4 focus:outline-none focus:ring-[#0059b2] dark:focus:ring-darkPurple transition-all font-medium rounded-lg text-md px-4 py-2 ">Select
             Date</button>
         </div>
         <ul class="w-full text-lg font-medium text-center p-4 hidden historyList">
@@ -645,21 +646,24 @@
     <div class="containr relative mx-auto py-6 mb-32 pt-12 px-6">
       <div class="flex flex-col justify-center max-w-xl mx-auto mb-6 border-b md:space-x-10 md:flex-row">
         <div
-          class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tabs cursor-pointer"
+          class="tab1 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 dark:hover:text-lightGreen md:w-1/3 tabs cursor-pointer"
           data-target="panels-1">
-          <div class="py-5 border-b-4 border-lightBlue" data-target="panels-1">Real Time Data</div>
+          <div class="py-5 border-b-4 border-lightBlue dark:border-lightGreen" data-target="panels-1">Real Time Data
+          </div>
         </div>
 
         <div
-          class="tab2 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tabs cursor-pointer"
+          class="tab2 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 dark:hover:text-lightGreen md:w-1/3 tabs cursor-pointer"
           data-target="panels-2">
-          <div class="py-5" data-target="panels-2">Keep on Track</div>
+          <div class="py-5 dark:border-lightGreen" data-target="panels-2">Keep on Track
+          </div>
         </div>
 
         <div
-          class="tab3 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 md:w-1/3 tabs cursor-pointer"
+          class="tab3 flex justify-center text-center border-b md:border-b-0 hover:text-blue-500 dark:hover:text-lightGreen md:w-1/3 tabs cursor-pointer"
           data-target="panels-3">
-          <div class="py-5" data-target="panels-3">Just go anywhere</div>
+          <div class="py-5 dark:border-lightGreen" data-target="panels-3">Just go anywhere
+          </div>
         </div>
       </div>
 
@@ -733,7 +737,8 @@
           <img src="images/bg-quotes.png" alt="" class="absolute left-1 -top-2 w-10 md:-top-16 md:w-20">
 
           <!-- Box 1 -->
-          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-testColor">
+          <div
+            class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-lightGreen dark:text-[#121212]">
             <p class="text-sm leading-5 md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
               molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
@@ -748,7 +753,8 @@
           </div>
 
           <!-- Box 2 -->
-          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-testColor">
+          <div
+            class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-lightGreen dark:text-[#121212]">
             <p class="text-sm leading-5 md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
               molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
@@ -763,7 +769,8 @@
           </div>
 
           <!-- Box 3 -->
-          <div class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-testColor">
+          <div
+            class="flex flex-col p-10 space-y-6 rounded-lg bg-[#E7EBF0] md:w-1/3 dark:bg-lightGreen dark:text-[#121212]">
             <p class="text-sm leading-5 md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, iusto inventore. Soluta accusantium
               molestiae, impedit ullam dolorum distinctio, consequatur, rem ipsam in similique illo quasi.
@@ -786,7 +793,7 @@
   <section class="more-info">
     <div class="relative px-6 md:px-0">
       <div
-        class="relative -top-40 max-w-4xl mx-auto p-10 px-6 space-y-6 text-center rounded-lg bg-gradient-to-br from-[#132f4c] to-[#173a5e] md:px-16 text-white">
+        class="relative -top-40 max-w-4xl mx-auto p-10 px-6 space-y-6 text-center rounded-lg bg-gradient-to-br from-[#132f4c] to-[#173a5e] md:px-16 text-white dark:bg-gradient-to-r dark:from-darkGreen dark:to-darkGreen">
         <h5 class="text-2xl font-bold">Get to update today</h5>
         <p class="text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, facilis quas, modi possimus hic assumenda minima
@@ -799,7 +806,10 @@
               class="dark:bg-textGrey dark:text-darkGrey w-full px-10 py-3 rounded-full focus:outline-none"
               placeholder="johnsmith@email.com">
           </div>
-          <button class="w-full p-3 px-6 rounded-full bg-[#03a9f4] md:w-56 hover:scale-95">Get Started for Free</button>
+          <button
+            class="w-full p-3 px-6 rounded-full bg-[#03a9f4] dark:bg-white dark:text-[#121212] md:w-56 hover:scale-95">Get
+            Started for
+            Free</button>
         </div>
       </div>
     </div>
@@ -885,7 +895,7 @@
               </li>
             </ul>
             <a href="#"
-              class="text-white bg-[#007FFF] hover:bg-[#0059b2] focus:ring-4 focus:ring-primary-200 rounded-lg px-5 py-2.5 text-center">Get
+              class="text-white bg-[#007FFF] hover:bg-[#0059b2] dark:bg-lightPurple dark:hover:bg-darkPurple focus:ring-4 focus:ring-primary-200 rounded-lg px-5 py-2.5 text-center">Get
               started</a>
           </div>
           <div
@@ -951,7 +961,7 @@
               </li>
             </ul>
             <a href="#"
-              class="text-white bg-[#007FFF] hover:bg-[#0059b2] focus:ring-4 focus:ring-primary-200 rounded-lg px-5 py-2.5 text-center">Get
+              class="text-white bg-[#007FFF] hover:bg-[#0059b2] dark:bg-lightPurple dark:hover:bg-darkPurple focus:ring-4 focus:ring-primary-200 rounded-lg px-5 py-2.5 text-center">Get
               started</a>
           </div>
         </div>
@@ -991,7 +1001,7 @@
             placeholder="Leave a comment..."></textarea>
         </div>
         <button type="submit"
-          class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#007FFF] sm:w-fit hover:bg-[#0059b2] focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send
+          class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#007FFF] sm:w-fit hover:bg-[#0059b2] dark:bg-lightPurple dark:hover:bg-darkPurple focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send
           message</button>
       </form>
     </div>
@@ -1044,13 +1054,13 @@
         <!-- footer-social-links -->
         <div class="flex space-x-4 md:flex-col lg:flex-row md:space-x-0 lg:space-x-4 md:pr-8 lg:pr-0">
           <a href=""><ion-icon name="logo-facebook"
-              class="w-[34px] h-[34px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
+              class="w-[34px] h-[34px] hover:text-[#03a9f4] dark:hover:text-lightGreen transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-instagram"
-              class="w-[34px] h-[34px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
+              class="w-[34px] h-[34px] hover:text-[#03a9f4] dark:hover:text-lightGreen transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-youtube"
-              class="w-[34px] h-[34px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
+              class="w-[34px] h-[34px] hover:text-[#03a9f4] dark:hover:text-lightGreen transition-all"></ion-icon></a>
           <a href=""><ion-icon name="logo-twitter"
-              class="w-[34px] h-[34px] hover:text-[#03a9f4] transition-all"></ion-icon></a>
+              class="w-[34px] h-[34px] hover:text-[#03a9f4] dark:hover:text-lightGreen transition-all"></ion-icon></a>
 
 
         </div>
