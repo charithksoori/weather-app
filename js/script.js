@@ -73,7 +73,7 @@ const apiUrl =
   "http://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
 
 const forecastUrl =
-  "http://api.weatherapi.com/v1/forecast.json?key=1258b95ec12041c5856171928231505&days=4&q=";
+  "http://api.weatherapi.com/v1/forecast.json?key=1258b95ec12041c5856171928231505&days=3&q=";
 
 const searchUrl =
   "http://api.weatherapi.com/v1/search.json?key=1258b95ec12041c5856171928231505&q=";
@@ -93,8 +93,9 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 const marker = L.marker([0, 0]).addTo(map);
 
-// =============================Current Location=====================================================================
-// ---------------------------------------------------------------------
+// ==================================================================================================================
+//                                                     Current Location
+// ==================================================================================================================
 
 window.addEventListener("DOMContentLoaded", () => {
   if (navigator.geolocation) {
@@ -106,29 +107,13 @@ window.addEventListener("DOMContentLoaded", () => {
         fetchText(lat, long);
       },
       (err) => {
-        alert(err.message);
+        alert("Geolocation is not supported by your browser");
         console.log(err.message);
       }
     );
   } else {
     alert("Geolocation is not supported by your browser");
   }
-
-  // function findMyCoordinates() {
-  //   if(navigator.geolocation){
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //        console.log(position.coords.latitude, position.coords.longitude)
-  //     },
-  //     (err) => {
-  //       alert(err.message)
-  //     })
-  //   } else {
-  //     alert("Geolocation is not supported by your browser")
-  //   }
-  // }
-  // window.addEventListener("DOMContentLoaded", () => {
-  //   fetchText(lat, long);
-  // });
 });
 
 async function fetchText(lat, long) {
@@ -142,61 +127,7 @@ async function fetchText(lat, long) {
   const cityName = cityData[0].name;
 
   console.log(cityName);
-
   checkWeather(cityName);
-  // const response = await fetch(apiUrl + cityName);
-  // const data = await response.json();
-
-  // const res = await fetch(forecastUrl + cityName);
-  // const forecastData = await res.json();
-  // console.log(forecastData);
-
-  // document.querySelector(".city").innerText = data.location.name;
-  // document.querySelector(".temp").innerText = Math.round(data.current.temp_c);
-  // document.querySelector(".feelsLikeTemp").innerText = Math.round(
-  //   data.current.feelslike_c
-  // );
-  // document.querySelector(".condition").innerText = data.current.condition.text;
-  // document.querySelector(".humidity").innerText = data.current.humidity;
-  // document.querySelector(".pressure").innerText = data.current.pressure_mb;
-  // document.querySelector(".wind").innerText = data.current.wind_kph;
-  // document.querySelector(".visibility").innerText = data.current.vis_km;
-  // document.querySelector(".uv").innerText = data.current.uv;
-  // imgBox.src = data.current.condition.icon;
-
-  // const lt = data.location.lat;
-
-  // const lng = data.location.lon;
-  // console.log(lt, lng);
-  // marker.setLatLng([lt, lng]).update();
-  // map.setView([lt, lng], 13);
-
-  // // Forecast for hourly
-
-  // for (let i = 0; i <= 23; i++) {
-  //   document.querySelector(`.dateHour${i}`).innerText =
-  //     forecastData.forecast.forecastday[0].hour[i].time;
-  //   document.querySelector(`.tempHour${i}`).innerText = Math.round(
-  //     forecastData.forecast.forecastday[0].hour[i].temp_c
-  //   );
-  //   document.querySelector(`.imgHour${i}`).src =
-  //     forecastData.forecast.forecastday[0].hour[i].condition.icon;
-  // }
-
-  // const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
-  // console.log(t);
-
-  // // Forecast for 3days
-
-  // for (let i = 1; i <= 3; i++) {
-  //   document.querySelector(`.dateFore${i}`).innerText =
-  //     forecastData.forecast.forecastday[i].date;
-  //   document.querySelector(`.tempFore${i}`).innerText = Math.round(
-  //     forecastData.forecast.forecastday[i].day.maxtemp_c
-  //   );
-  //   document.querySelector(`.imgFore${i}`).src =
-  //     forecastData.forecast.forecastday[i].day.condition.icon;
-  // }
 }
 
 // ==================================================================================================================
@@ -269,10 +200,30 @@ async function checkWeather(city) {
       document.querySelector(`.dateFore${i}`).innerText =
         forecastData.forecast.forecastday[i].date;
       document.querySelector(`.tempFore${i}`).innerText = Math.round(
-        forecastData.forecast.forecastday[i].day.maxtemp_c
+        forecastData.forecast.forecastday[i].day.avgtemp_c
       );
+      document.querySelector(`.conFore${i}`).innerText =
+        forecastData.forecast.forecastday[i].day.condition.text;
       document.querySelector(`.imgFore${i}`).src =
         forecastData.forecast.forecastday[i].day.condition.icon;
+      // -------------------------
+      document.querySelector(`.riseFore${i}`).innerText =
+        forecastData.forecast.forecastday[i].astro.sunrise;
+      document.querySelector(`.setFore${i}`).innerText =
+        forecastData.forecast.forecastday[i].astro.sunset;
+      document.querySelector(`.maxtempFore${i}`).innerText = Math.round(
+        forecastData.forecast.forecastday[i].day.maxtemp_c
+      );
+      document.querySelector(`.mintempFore${i}`).innerText = Math.round(
+        forecastData.forecast.forecastday[i].day.mintemp_c
+      );
+      document.querySelector(`.humFore${i}`).innerText = Math.round(
+        forecastData.forecast.forecastday[i].day.avghumidity
+      );
+      document.querySelector(`.corFore${i}`).innerText =
+        forecastData.forecast.forecastday[i].day.daily_chance_of_rain;
+      document.querySelector(`.cosFore${i}`).innerText =
+        forecastData.forecast.forecastday[i].day.daily_chance_of_snow;
     }
     searchBox.value = "";
   } catch (error) {
@@ -339,10 +290,25 @@ async function getHistoryData(city, selectDate) {
   document.querySelector(".dateHistory").innerText =
     historyData.forecast.forecastday[0].date;
   document.querySelector(".tempHistory").innerText = Math.round(
+    historyData.forecast.forecastday[0].day.avgtemp_c
+  );
+  document.querySelector(".maxtempHistory").innerText = Math.round(
     historyData.forecast.forecastday[0].day.maxtemp_c
+  );
+  document.querySelector(".mintempHistory").innerText = Math.round(
+    historyData.forecast.forecastday[0].day.mintemp_c
+  );
+  document.querySelector(".humHistory").innerText = Math.round(
+    historyData.forecast.forecastday[0].day.avghumidity
   );
   document.querySelector(".imgHistory").src =
     historyData.forecast.forecastday[0].day.condition.icon;
+  document.querySelector(".conHistory").src =
+    historyData.forecast.forecastday[0].day.condition.text;
+  document.querySelector(".riseHistory").src =
+    historyData.forecast.forecastday[0].astro.sunrise;
+  document.querySelector(".setHistory").src =
+    historyData.forecast.forecastday[0].astro.sunset;
 
   const li = document.querySelector(".historyList");
   li.classList.toggle("hidden");
@@ -393,3 +359,25 @@ function toggleMode() {
     }
   }
 }
+
+// =============================Forecast Tabs=============================================
+
+const about = document.querySelector(".about");
+const btns = document.querySelectorAll(".tab-button");
+const articles = document.querySelectorAll(".contentBox");
+about.addEventListener("click", function (e) {
+  const id = e.target.dataset.id;
+  if (id) {
+    // remove selected from other buttons
+    btns.forEach(function (btn) {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    // hide other articles
+    articles.forEach(function (article) {
+      article.classList.remove("active");
+    });
+    const element = document.getElementById(id);
+    element.classList.add("active");
+  }
+});

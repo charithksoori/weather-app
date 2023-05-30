@@ -162,6 +162,7 @@
         </div>
 
         <div class="bg-gradient-to-br from-[#007fff] to-[#0059b2] ">
+
           <div class="content px-8 text-xl font-light py-6 leading-8 text-white dark:bg-lightGrey">
             <p>Check Hourly Forecast without plan your journey</p>
           </div>
@@ -173,7 +174,6 @@
               </svg>
             </a>
           </div>
-
         </div>
       </div>
 
@@ -559,7 +559,7 @@
   <section class="forecast ">
     <!-- Forecast Details -->
 
-    <div class="container grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-24 mt-12 mx-auto py-8">
+    <div class="container grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-10 mt-12 mx-auto py-8">
       <!-- History -->
       <div class="history bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm dark:bg-lightGrey dark:border-none">
         <h2 class="text-3xl font-medium p-8 border-b">History</h2>
@@ -571,9 +571,13 @@
             class="subButton text-[#0059b2] dark:bg-textGrey dark:text-lightPurple dark:hover:bg-darkPurple dark:hover:text-textGrey hover:text-white border border-[#0059b2] hover:bg-[#0059b2] dark:border-lightPurple dark:hover:border-darkPurple focus:ring-4 focus:outline-none focus:ring-[#0059b2] dark:focus:ring-darkPurple transition-all font-medium rounded-lg text-md px-4 py-2">Select
             Date</button>
         </div>
-        <ul class="w-full text-lg font-medium text-center p-4 hidden historyList">
+
+        <ul class="w-full text-center p-4 historyList hidden">
+          <li class=" w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+            <div class="dateHistory">2023-05-26</div>
+          </li>
           <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
-            <div class="div dateHistory">2023/05/22</div>
+            <div class="div conHistory">Sunny</div>
             <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgHistory">
             </div>
             <div class="div">
@@ -582,47 +586,260 @@
               <span class="text-2xl ">C</span>
             </div>
           </li>
+          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+            <div class="">Sunrise</div>
+            <div class="">
+              <span class="riseHistory">05:50 AM</span>
+            </div>
+          </li>
+          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+            <div class="">Sunset</div>
+            <div class="">
+              <span class="setHistory">06:20 PM</span>
+            </div>
+          </li>
+          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+            <div class="">Max Temp</div>
+            <div class="">
+              <span class="maxtempHistory">30</span>
+              <span class="">&deg;</span>
+              <span class="">C</span>
+            </div>
+          </li>
+          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+            <div class="">Min Temp</div>
+            <div class="">
+              <span class="mintempHistory">21</span>
+              <span class="">&deg;</span>
+              <span class="">C</span>
+            </div>
+          </li>
+          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+            <div class="">Humidity</div>
+            <div class="">
+              <span class="humHistory">80</span>
+              <span class="">%</span>
+            </div>
+          </li>
         </ul>
       </div>
+
+
 
       <!-- Forecast -->
       <div class="forecast bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm dark:bg-lightGrey dark:border-none">
         <h2 class="text-3xl font-medium p-8 border-b">Forecast</h2>
-        <ul class="w-full text-lg font-medium text-center p-4">
-          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
-            <div class="div dateFore0">2023/05/22</div>
-            <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgFore0">
-            </div>
-            <div class="div">
-              <span class="text-2xl tempFore0">30</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </li>
-          <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
-            <div class="div dateFore1">2023/05/23</div>
-            <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgFore1">
-            </div>
-            <div class="div">
-              <span class="text-2xl tempFore1">30</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </li>
-          <li class="w-full px-4 py-2 flex justify-between items-center">
-            <div class="div dateFore2">2023/05/24</div>
-            <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt="" class="w-20 imgFore2">
-            </div>
-            <div class="div">
-              <span class="text-2xl tempFore2">30</span>
-              <span class="text-2xl">&deg;</span>
-              <span class="text-2xl ">C</span>
-            </div>
-          </li>
-        </ul>
 
+        <section class="section">
+          <div class="about-center section-center">
+            <article class="about">
+              <!-- btn container -->
+              <div class="button-container dark:text-darkGrey">
+                <button class="tab-button active dateFore0 font-medium" data-id="Day1">2023-05-24</button>
+                <button class="tab-button dateFore1 font-medium " data-id="Day2">2023-05-25</button>
+                <button class="tab-button dateFore2 font-medium" data-id="Day3">2023-05-26</button>
+              </div>
+              <div class="about-content">
+                <!-- single item -->
+                <div class="contentBox active" id="Day1">
+                  <ul class="w-full text-center p-4">
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="text-2xl conFore0">Sunny</div>
+                      <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt=""
+                          class="w-20 imgFore0">
+                      </div>
+                      <div class="div">
+                        <span class="text-2xl tempFore0">30</span>
+                        <span class="text-2xl">&deg;</span>
+                        <span class="text-2xl ">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Sunrise</div>
+                      <div class="">
+                        <span class="riseFore0">05:50 AM</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Sunset</div>
+                      <div class="">
+                        <span class="setFore0">06:20 PM</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Max Temp</div>
+                      <div class="">
+                        <span class="maxtempFore0">30</span>
+                        <span class="">&deg;</span>
+                        <span class="">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Min Temp</div>
+                      <div class="">
+                        <span class="mintempFore0">21</span>
+                        <span class="">&deg;</span>
+                        <span class="">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Humidity</div>
+                      <div class="">
+                        <span class="humFore0">80</span>
+                        <span class="">%</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Chance of rain</div>
+                      <div class="">
+                        <span class="corFore0">0</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Chance of snow</div>
+                      <div class="">
+                        <span class="cosFore0">0</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of single item -->
+                <!-- single item -->
+                <div class="contentBox" id="Day2">
+                  <ul class="w-full text-center p-4">
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="text-2xl conFore1">Sunny</div>
+                      <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt=""
+                          class="w-20 imgFore1">
+                      </div>
+                      <div class="div">
+                        <span class="text-2xl tempFore1">30</span>
+                        <span class="text-2xl">&deg;</span>
+                        <span class="text-2xl ">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Sunrise</div>
+                      <div class="">
+                        <span class="riseFore1">05:50 AM</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Sunset</div>
+                      <div class="">
+                        <span class="setFore1">06:20 PM</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Max Temp</div>
+                      <div class="">
+                        <span class="maxtempFore1">30</span>
+                        <span class="">&deg;</span>
+                        <span class="">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Min Temp</div>
+                      <div class="">
+                        <span class="mintempFore1">21</span>
+                        <span class="">&deg;</span>
+                        <span class="">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Humidity</div>
+                      <div class="">
+                        <span class="humFore1">80</span>
+                        <span class="">%</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Chance of rain</div>
+                      <div class="">
+                        <span class="corFore1">0</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Chance of snow</div>
+                      <div class="">
+                        <span class="cosFore1">0</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of single item -->
+                <!-- single item -->
+                <div class="contentBox" id="Day3">
+                  <ul class="w-full text-center p-4">
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="text-2xl conFore2">Sunny</div>
+                      <div class="div"><img src="//cdn.weatherapi.com/weather/64x64/day/116.png" alt=""
+                          class="w-20 imgFore2">
+                      </div>
+                      <div class="div">
+                        <span class="text-2xl tempFore2">30</span>
+                        <span class="text-2xl">&deg;</span>
+                        <span class="text-2xl ">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Sunrise</div>
+                      <div class="">
+                        <span class="riseFore2">05:50 AM</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Sunset</div>
+                      <div class="">
+                        <span class="setFore2">06:20 PM</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Max Temp</div>
+                      <div class="">
+                        <span class="maxtempFore2">30</span>
+                        <span class="">&deg;</span>
+                        <span class="">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Min Temp</div>
+                      <div class="">
+                        <span class="mintempFore2">21</span>
+                        <span class="">&deg;</span>
+                        <span class="">C</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Humidity</div>
+                      <div class="">
+                        <span class="humFore2">80</span>
+                        <span class="">%</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Chance of rain</div>
+                      <div class="">
+                        <span class="corFore2">0</span>
+                      </div>
+                    </li>
+                    <li class="w-full px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+                      <div class="">Chance of snow</div>
+                      <div class="">
+                        <span class="cosFore2">0</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of single item -->
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
+
     </div>
+
   </section>
 
 

@@ -115,3 +115,40 @@ body {
 
   transform: rotate(-135deg);
 }
+
+/* ======================================================================================= */
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tab-button {
+  padding: 1rem 0;
+  border: none;
+  text-transform: capitalize;
+  font-size: 1rem;
+  display: block;
+  background: #99ccf3;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  letter-spacing: 0rem;
+}
+.tab-button:hover:not(.active) {
+  background: #0059b2;
+  color: #fff;
+}
+.about-contentBox {
+  padding: 2rem 1.5rem;
+}
+/* hide content */
+.contentBox {
+  display: none;
+}
+.tab-button.active {
+  background: #e7ebf0;
+}
+
+.contentBox.active {
+  display: block;
+}
