@@ -70,16 +70,16 @@ const submitBtn = document.querySelector(".subButton");
 
 const apiKey = "1258b95ec12041c5856171928231505";
 const apiUrl =
-  "http://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
+  "https://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
 
 const forecastUrl =
-  "http://api.weatherapi.com/v1/forecast.json?key=1258b95ec12041c5856171928231505&days=3&q=";
+  "https://api.weatherapi.com/v1/forecast.json?key=1258b95ec12041c5856171928231505&days=3&q=";
 
 const searchUrl =
-  "http://api.weatherapi.com/v1/search.json?key=1258b95ec12041c5856171928231505&q=";
+  "https://api.weatherapi.com/v1/search.json?key=1258b95ec12041c5856171928231505&q=";
 
 const historyUrl =
-  "http://api.weatherapi.com/v1/history.json?key=1258b95ec12041c5856171928231505&q=";
+  "https://api.weatherapi.com/v1/history.json?key=1258b95ec12041c5856171928231505&q=";
 
 // ==================================================================================================================
 //                                                      Map
