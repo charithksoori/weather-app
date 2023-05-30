@@ -18,6 +18,10 @@ body {
   #1F1F1F*/
 }
 
+.error {
+  display: none;
+}
+
 .headingback {
   background: linear-gradient(to right, #007fff, #0059b2);
   background-clip: text;

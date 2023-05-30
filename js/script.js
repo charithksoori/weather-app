@@ -60,11 +60,13 @@ function onClick(e) {
     .classList.remove("hidden");
 }
 
-// Weather API=====================================================================
-
+// ==================================================================================================================
+//                                                      Weather API
+// ==================================================================================================================
 const searchBox = document.querySelector(".search");
 const searchBtn = document.querySelector(".btn");
 const imgBox = document.querySelector(".img");
+const submitBtn = document.querySelector(".subButton");
 
 const apiKey = "1258b95ec12041c5856171928231505";
 const apiUrl =
@@ -79,62 +81,208 @@ const searchUrl =
 const historyUrl =
   "http://api.weatherapi.com/v1/history.json?key=1258b95ec12041c5856171928231505&q=";
 
-// ---------------------------------------------Date fetching----------------------------
+// ==================================================================================================================
+//                                                      Map
+// ==================================================================================================================
+const map = L.map("map").setView([51.505, -0.09], 13);
 
-// -------------------------------------------------------------------------
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+const marker = L.marker([0, 0]).addTo(map);
+
+// =============================Current Location=====================================================================
+// ---------------------------------------------------------------------
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const lat = pos.coords.latitude;
+        const long = pos.coords.longitude;
+        console.log(lat, long);
+        fetchText(lat, long);
+      },
+      (err) => {
+        alert(err.message);
+        console.log(err.message);
+      }
+    );
+  } else {
+    alert("Geolocation is not supported by your browser");
+  }
+
+  // function findMyCoordinates() {
+  //   if(navigator.geolocation){
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //        console.log(position.coords.latitude, position.coords.longitude)
+  //     },
+  //     (err) => {
+  //       alert(err.message)
+  //     })
+  //   } else {
+  //     alert("Geolocation is not supported by your browser")
+  //   }
+  // }
+  // window.addEventListener("DOMContentLoaded", () => {
+  //   fetchText(lat, long);
+  // });
+});
+
+async function fetchText(lat, long) {
+  const alt = lat;
+  const ln = long;
+  console.log("Show", alt, ln);
+
+  const search = await fetch(searchUrl + alt.toString() + "," + ln.toString());
+  var cityData = await search.json();
+
+  const cityName = cityData[0].name;
+
+  console.log(cityName);
+
+  checkWeather(cityName);
+  // const response = await fetch(apiUrl + cityName);
+  // const data = await response.json();
+
+  // const res = await fetch(forecastUrl + cityName);
+  // const forecastData = await res.json();
+  // console.log(forecastData);
+
+  // document.querySelector(".city").innerText = data.location.name;
+  // document.querySelector(".temp").innerText = Math.round(data.current.temp_c);
+  // document.querySelector(".feelsLikeTemp").innerText = Math.round(
+  //   data.current.feelslike_c
+  // );
+  // document.querySelector(".condition").innerText = data.current.condition.text;
+  // document.querySelector(".humidity").innerText = data.current.humidity;
+  // document.querySelector(".pressure").innerText = data.current.pressure_mb;
+  // document.querySelector(".wind").innerText = data.current.wind_kph;
+  // document.querySelector(".visibility").innerText = data.current.vis_km;
+  // document.querySelector(".uv").innerText = data.current.uv;
+  // imgBox.src = data.current.condition.icon;
+
+  // const lt = data.location.lat;
+
+  // const lng = data.location.lon;
+  // console.log(lt, lng);
+  // marker.setLatLng([lt, lng]).update();
+  // map.setView([lt, lng], 13);
+
+  // // Forecast for hourly
+
+  // for (let i = 0; i <= 23; i++) {
+  //   document.querySelector(`.dateHour${i}`).innerText =
+  //     forecastData.forecast.forecastday[0].hour[i].time;
+  //   document.querySelector(`.tempHour${i}`).innerText = Math.round(
+  //     forecastData.forecast.forecastday[0].hour[i].temp_c
+  //   );
+  //   document.querySelector(`.imgHour${i}`).src =
+  //     forecastData.forecast.forecastday[0].hour[i].condition.icon;
+  // }
+
+  // const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
+  // console.log(t);
+
+  // // Forecast for 3days
+
+  // for (let i = 1; i <= 3; i++) {
+  //   document.querySelector(`.dateFore${i}`).innerText =
+  //     forecastData.forecast.forecastday[i].date;
+  //   document.querySelector(`.tempFore${i}`).innerText = Math.round(
+  //     forecastData.forecast.forecastday[i].day.maxtemp_c
+  //   );
+  //   document.querySelector(`.imgFore${i}`).src =
+  //     forecastData.forecast.forecastday[i].day.condition.icon;
+  // }
+}
+
+// ==================================================================================================================
+//                                     Display search weather conditions & Forecast
+// ==================================================================================================================
 
 async function checkWeather(city) {
-  const response = await fetch(apiUrl + city);
-  var data = await response.json();
+  try {
+    const response = await fetch(apiUrl + city);
+    console.log(response);
 
-  const resForecast = await fetch(forecastUrl + city);
-  var forecastData = await resForecast.json();
+    if (!response.ok) {
+      throw new Error("Enter a valid city name");
+    }
 
-  console.log(forecastData);
+    // if (response.status == 400) {
+    //   document.querySelector(".error").style.display = "block";
+    //   throw new Error("Enter a valid city name");
+    // } else {
+    document.querySelector(".error").style.display = "none";
+    const data = await response.json();
 
-  document.querySelector(".city").innerText = data.location.name;
-  document.querySelector(".temp").innerText = data.current.temp_c;
-  document.querySelector(".feelsLikeTemp").innerText = data.current.feelslike_c;
-  document.querySelector(".condition").innerText = data.current.condition.text;
-  document.querySelector(".humidity").innerText = data.current.humidity;
-  document.querySelector(".pressure").innerText = data.current.pressure_mb;
-  document.querySelector(".wind").innerText = data.current.wind_kph;
-  document.querySelector(".visibility").innerText = data.current.vis_km;
-  document.querySelector(".uv").innerText = data.current.uv;
-  imgBox.src = data.current.condition.icon;
+    const resForecast = await fetch(forecastUrl + city);
+    const forecastData = await resForecast.json();
 
-  const lt = data.location.lat;
+    console.log(forecastData);
 
-  const lng = data.location.lon;
-  console.log(lt, lng);
-  marker.setLatLng([lt, lng]).update();
-  map.setView([lt, lng], 13);
+    document.querySelector(".city").innerText = data.location.name;
+    document.querySelector(".temp").innerText = Math.round(data.current.temp_c);
+    document.querySelector(".feelsLikeTemp").innerText = Math.round(
+      data.current.feelslike_c
+    );
+    document.querySelector(".condition").innerText =
+      data.current.condition.text;
+    document.querySelector(".humidity").innerText = data.current.humidity;
+    document.querySelector(".pressure").innerText = data.current.pressure_mb;
+    document.querySelector(".wind").innerText = data.current.wind_kph;
+    document.querySelector(".visibility").innerText = data.current.vis_km;
+    document.querySelector(".uv").innerText = data.current.uv;
+    imgBox.src = data.current.condition.icon;
 
-  // Forecast for hourly
+    const lt = data.location.lat;
 
-  for (let i = 0; i <= 23; i++) {
-    document.querySelector(`.dateHour${i}`).innerText =
-      forecastData.forecast.forecastday[0].hour[i].time;
-    document.querySelector(`.tempHour${i}`).innerText =
-      forecastData.forecast.forecastday[0].hour[i].temp_c;
-    document.querySelector(`.imgHour${i}`).src =
-      forecastData.forecast.forecastday[0].hour[i].condition.icon;
-  }
+    const lng = data.location.lon;
+    console.log(lt, lng);
+    marker.setLatLng([lt, lng]).update();
+    map.setView([lt, lng], 13);
 
-  const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
-  console.log(t);
+    // Forecast for hourly
 
-  // Forecast for 3days
+    for (let i = 0; i <= 23; i++) {
+      document.querySelector(`.dateHour${i}`).innerText =
+        forecastData.forecast.forecastday[0].hour[i].time;
+      document.querySelector(`.tempHour${i}`).innerText = Math.round(
+        forecastData.forecast.forecastday[0].hour[i].temp_c
+      );
+      document.querySelector(`.imgHour${i}`).src =
+        forecastData.forecast.forecastday[0].hour[i].condition.icon;
+    }
 
-  for (let i = 1; i <= 3; i++) {
-    document.querySelector(`.dateFore${i}`).innerText =
-      forecastData.forecast.forecastday[i].date;
-    document.querySelector(`.tempFore${i}`).innerText =
-      forecastData.forecast.forecastday[i].day.maxtemp_c;
-    document.querySelector(`.imgFore${i}`).src =
-      forecastData.forecast.forecastday[i].day.condition.icon;
+    const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
+    console.log(t);
+
+    for (const item of forecastData.forecast.forecastday) {
+      console.log(item);
+    }
+    // Forecast for 3days
+
+    for (let i = 0; i < 3; i++) {
+      document.querySelector(`.dateFore${i}`).innerText =
+        forecastData.forecast.forecastday[i].date;
+      document.querySelector(`.tempFore${i}`).innerText = Math.round(
+        forecastData.forecast.forecastday[i].day.maxtemp_c
+      );
+      document.querySelector(`.imgFore${i}`).src =
+        forecastData.forecast.forecastday[i].day.condition.icon;
+    }
+    searchBox.value = "";
+  } catch (error) {
+    console.log(error);
+    document.querySelector(".error").style.display = "block";
+    searchBox.value = "";
   }
 }
+
+// --------------------------------------------------------------------
 
 searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -150,97 +298,7 @@ searchBtn.addEventListener("click", (event) => {
   });
 });
 
-// ==================================================================================================================
-// Map
-const map = L.map("map").setView([51.505, -0.09], 13);
-
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
-
-const marker = L.marker([0, 0]).addTo(map);
-
-// ===================================================================================================================
-
-async function fetchText(lat, long) {
-  // let url = "https://ipinfo.io/json?token=a2ad1ff7867b44";
-  // let r = await fetch(url);
-  // let d = await r.json();
-  // const location = d.city;
-  // console.log(location);
-
-  const alt = lat;
-  const ln = long;
-  console.log("Show", alt, ln);
-
-  const search = await fetch(searchUrl + alt.toString() + "," + ln.toString());
-  var cityData = await search.json();
-
-  const cityName = cityData[0].name;
-
-  console.log(cityName);
-
-  const response = await fetch(apiUrl + cityName);
-  var data = await response.json();
-
-  const res = await fetch(forecastUrl + cityName);
-  var forecastData = await res.json();
-  console.log(forecastData);
-
-  document.querySelector(".city").innerText = data.location.name;
-  document.querySelector(".temp").innerText = data.current.temp_c;
-  document.querySelector(".feelsLikeTemp").innerText = data.current.feelslike_c;
-  document.querySelector(".condition").innerText = data.current.condition.text;
-  document.querySelector(".humidity").innerText = data.current.humidity;
-  document.querySelector(".pressure").innerText = data.current.pressure_mb;
-  document.querySelector(".wind").innerText = data.current.wind_kph;
-  document.querySelector(".visibility").innerText = data.current.vis_km;
-  document.querySelector(".uv").innerText = data.current.uv;
-  imgBox.src = data.current.condition.icon;
-
-  const lt = data.location.lat;
-
-  const lng = data.location.lon;
-  console.log(lt, lng);
-  marker.setLatLng([lt, lng]).update();
-  map.setView([lt, lng], 13);
-
-  // Forecast for hourly
-
-  for (let i = 0; i <= 23; i++) {
-    document.querySelector(`.dateHour${i}`).innerText =
-      forecastData.forecast.forecastday[0].hour[i].time;
-    document.querySelector(`.tempHour${i}`).innerText =
-      forecastData.forecast.forecastday[0].hour[i].temp_c;
-    document.querySelector(`.imgHour${i}`).src =
-      forecastData.forecast.forecastday[0].hour[i].condition.icon;
-  }
-
-  const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
-  console.log(t);
-
-  // Forecast for 3days
-
-  for (let i = 1; i <= 3; i++) {
-    document.querySelector(`.dateFore${i}`).innerText =
-      forecastData.forecast.forecastday[i].date;
-    document.querySelector(`.tempFore${i}`).innerText =
-      forecastData.forecast.forecastday[i].day.maxtemp_c;
-    document.querySelector(`.imgFore${i}`).src =
-      forecastData.forecast.forecastday[i].day.condition.icon;
-  }
-}
-
-navigator.geolocation.getCurrentPosition(function (pos) {
-  const lat = pos.coords.latitude;
-  const long = pos.coords.longitude;
-
-  console.log(lat, long);
-  fetchText(lat, long);
-});
-
-// Calender===========================================================================================================
+// Calender===========for Weather History================================================================================================
 
 let date = new Date();
 let month = date.getMonth() + 1;
@@ -267,23 +325,22 @@ document.getElementById("dob").setAttribute("max", maxDate);
 //   console.log("Date", selectDate);
 // }
 
-const submitBtn = document.querySelector(".subButton");
-
 async function getHistoryData(city, selectDate) {
   console.log("in his", city, selectDate);
 
   const resHistory = await fetch(
     historyUrl + city + "&dt=" + selectDate.toString()
   );
-  var historyData = await resHistory.json();
+  const historyData = await resHistory.json();
 
   console.log(historyData);
   console.log(historyData.forecast.forecastday[0].date);
 
   document.querySelector(".dateHistory").innerText =
     historyData.forecast.forecastday[0].date;
-  document.querySelector(".tempHistory").innerText =
-    historyData.forecast.forecastday[0].day.maxtemp_c;
+  document.querySelector(".tempHistory").innerText = Math.round(
+    historyData.forecast.forecastday[0].day.maxtemp_c
+  );
   document.querySelector(".imgHistory").src =
     historyData.forecast.forecastday[0].day.condition.icon;
 
