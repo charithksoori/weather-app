@@ -560,7 +560,9 @@
     <!-- Forecast Details -->
 
     <div class="container grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-10 mt-12 mx-auto py-8">
+
       <!-- History -->
+
       <div class="history bg-white rounded-md border-2 border-[#E7EBF0] shadow-sm dark:bg-lightGrey dark:border-none">
         <h2 class="text-3xl font-medium p-8 border-b">History</h2>
         <p class="px-8 mt-8">Select a date</p>
@@ -570,6 +572,13 @@
           <button type="submit"
             class="subButton text-[#0059b2] dark:bg-textGrey dark:text-lightPurple dark:hover:bg-darkPurple dark:hover:text-textGrey hover:text-white border border-[#0059b2] hover:bg-[#0059b2] dark:border-lightPurple dark:hover:border-darkPurple focus:ring-4 focus:outline-none focus:ring-[#0059b2] dark:focus:ring-darkPurple transition-all font-medium rounded-lg text-md px-4 py-2">Select
             Date</button>
+        </div>
+
+        <!-- Error messege -->
+        <div
+          class="historyError mx-4 p-4 mb-4 text-md text-red-800 rounded-lg bg-red-50 dark:bg-[#CF6679] dark:text-textGrey hidden"
+          role="alert">
+          <span class="font-medium">Alert!</span> &nbsp;&nbsp; Please select a date within past 07 days.
         </div>
 
         <ul class="w-full text-center p-4 historyList hidden">

@@ -1472,6 +1472,10 @@ body {
   display: none;
 }
 
+.historyError {
+  display: none;
+}
+
 .headingback {
   background: linear-gradient(to right, #007fff, #0059b2);
   -webkit-background-clip: text;

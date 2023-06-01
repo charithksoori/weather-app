@@ -291,53 +291,61 @@ let maxDate = year + "-" + month + "-" + currentDate;
 
 console.log("min", minDate);
 console.log("max", maxDate);
-document.getElementById("dob").setAttribute("min", minDate);
-document.getElementById("dob").setAttribute("max", maxDate);
+// document.getElementById("dob").setAttribute("min", minDate);
+// document.getElementById("dob").setAttribute("max", maxDate);
 
 // function viewdate() {
 //   const selectDate = document.getElementById("dob").value;
 //   console.log("Date", selectDate);
 // }
+const li = document.querySelector(".historyList");
 
 async function getHistoryData(city, selectDate) {
-  console.log("in his", city, selectDate);
+  try {
+    console.log("in history", city, selectDate);
 
-  const resHistory = await fetch(
-    historyUrl + city + "&dt=" + selectDate.toString()
-  );
-  const historyData = await resHistory.json();
+    const resHistory = await fetch(
+      historyUrl + city + "&dt=" + selectDate.toString()
+    );
+    const historyData = await resHistory.json();
 
-  console.log(historyData);
-  console.log(historyData.forecast.forecastday[0].date);
+    console.log(historyData);
+    console.log(historyData.forecast.forecastday[0].date);
 
-  document.querySelector(".dateHistory").innerText =
-    historyData.forecast.forecastday[0].date;
-  document.querySelector(".tempHistory").innerText = Math.round(
-    historyData.forecast.forecastday[0].day.avgtemp_c
-  );
-  document.querySelector(".maxtempHistory").innerText = Math.round(
-    historyData.forecast.forecastday[0].day.maxtemp_c
-  );
-  document.querySelector(".mintempHistory").innerText = Math.round(
-    historyData.forecast.forecastday[0].day.mintemp_c
-  );
-  document.querySelector(".humHistory").innerText = Math.round(
-    historyData.forecast.forecastday[0].day.avghumidity
-  );
-  document.querySelector(".imgHistory").src =
-    historyData.forecast.forecastday[0].day.condition.icon;
-  document.querySelector(".conHistory").src =
-    historyData.forecast.forecastday[0].day.condition.text;
-  document.querySelector(".riseHistory").src =
-    historyData.forecast.forecastday[0].astro.sunrise;
-  document.querySelector(".setHistory").src =
-    historyData.forecast.forecastday[0].astro.sunset;
+    document.querySelector(".dateHistory").innerText =
+      historyData.forecast.forecastday[0].date;
+    document.querySelector(".tempHistory").innerText = Math.round(
+      historyData.forecast.forecastday[0].day.avgtemp_c
+    );
+    document.querySelector(".maxtempHistory").innerText = Math.round(
+      historyData.forecast.forecastday[0].day.maxtemp_c
+    );
+    document.querySelector(".mintempHistory").innerText = Math.round(
+      historyData.forecast.forecastday[0].day.mintemp_c
+    );
+    document.querySelector(".humHistory").innerText = Math.round(
+      historyData.forecast.forecastday[0].day.avghumidity
+    );
+    document.querySelector(".imgHistory").src =
+      historyData.forecast.forecastday[0].day.condition.icon;
+    document.querySelector(".conHistory").src =
+      historyData.forecast.forecastday[0].day.condition.text;
+    document.querySelector(".riseHistory").src =
+      historyData.forecast.forecastday[0].astro.sunrise;
+    document.querySelector(".setHistory").src =
+      historyData.forecast.forecastday[0].astro.sunset;
 
-  const li = document.querySelector(".historyList");
-  li.classList.toggle("hidden");
+    li.classList.remove("hidden");
+    document.querySelector(".historyError").style.display = "none";
+  } catch (error) {
+    li.classList.add("hidden");
+    document.querySelector(".historyError").style.display = "block";
+    console.log("Historical data: ", error);
+  }
 }
 
 // =======================Dark Mode=========================================================
+
 const themeToggleBtn = document.getElementById("theme-toggle");
 const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
 const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
