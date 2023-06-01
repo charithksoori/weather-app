@@ -96,7 +96,6 @@ const marker = L.marker([0, 0]).addTo(map);
 // ==================================================================================================================
 //                                                     Current Location
 // ==================================================================================================================
-
 window.addEventListener("DOMContentLoaded", () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -191,9 +190,9 @@ async function checkWeather(city) {
     const t = forecastData.forecast.forecastday[0].hour[1].temp_c;
     console.log(t);
 
-    for (const item of forecastData.forecast.forecastday) {
-      console.log(item);
-    }
+    // for (const item of forecastData.forecast.forecastday) {
+    //   console.log(item);
+    // }
     // Forecast for 3days
 
     for (let i = 0; i < 3; i++) {
@@ -254,18 +253,42 @@ searchBtn.addEventListener("click", (event) => {
 let date = new Date();
 let month = date.getMonth() + 1;
 let year = date.getUTCFullYear();
-let pastDate = date.getDate() - 5;
-let currentDate = date.getDate() - 1;
+let pastDate = date.getDate();
+let currentDate = date.getDate();
+
+console.log("past date", pastDate);
+console.log("current date", currentDate);
+
+let pMonth;
+if (pastDate <= 5) {
+  pastDate = 30 + pastDate - 5;
+  pMonth = month - 1;
+} else {
+  pastDate - 5;
+  pMonth = month;
+}
 
 if (month < 10) {
   month = "0" + month;
 }
+
+if (pMonth < 10) {
+  pMonth = "0" + pMonth;
+}
+
 if (pastDate < 10) {
   pastDate = "0" + pastDate;
 }
 
-let minDate = year + "-" + month + "-" + pastDate;
+if (currentDate < 10) {
+  currentDate = "0" + currentDate;
+}
+
+console.log(currentDate);
+
+let minDate = year + "-" + pMonth + "-" + pastDate;
 let maxDate = year + "-" + month + "-" + currentDate;
+
 console.log("min", minDate);
 console.log("max", maxDate);
 document.getElementById("dob").setAttribute("min", minDate);
