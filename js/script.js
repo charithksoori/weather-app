@@ -250,54 +250,37 @@ searchBtn.addEventListener("click", (event) => {
 
 // Calender===========for Weather History================================================================================================
 
-let date = new Date();
-let month = date.getMonth() + 1;
-let year = date.getUTCFullYear();
-let pastDate = date.getDate();
-let currentDate = date.getDate();
+// let date = new Date();
+// let month = date.getMonth() + 1;
+// let year = date.getUTCFullYear();
+// let pastDate = date.getDate()-;
+// let currentDate = date.getDate();
 
-console.log("past date", pastDate);
-console.log("current date", currentDate);
+// console.log("past date", pastDate);
+// console.log("current date", currentDate);
 
-let pMonth;
-if (pastDate <= 5) {
-  pastDate = 30 + pastDate - 5;
-  pMonth = month - 1;
-} else {
-  pastDate - 5;
-  pMonth = month;
-}
+// if (month < 10) {
+//   month = "0" + month;
+// }
 
-if (month < 10) {
-  month = "0" + month;
-}
+// if (pastDate < 10) {
+//   pastDate = "0" + pastDate;
+// }
 
-if (pMonth < 10) {
-  pMonth = "0" + pMonth;
-}
+// if (currentDate < 10) {
+//   currentDate = "0" + currentDate;
+// }
 
-if (pastDate < 10) {
-  pastDate = "0" + pastDate;
-}
+// console.log(currentDate);
 
-if (currentDate < 10) {
-  currentDate = "0" + currentDate;
-}
+// let minDate = year + "-" + month + "-" + pastDate;
+// let maxDate = year + "-" + month + "-" + currentDate;
 
-console.log(currentDate);
-
-let minDate = year + "-" + pMonth + "-" + pastDate;
-let maxDate = year + "-" + month + "-" + currentDate;
-
-console.log("min", minDate);
-console.log("max", maxDate);
+// console.log("min", minDate);
+// console.log("max", maxDate);
 // document.getElementById("dob").setAttribute("min", minDate);
 // document.getElementById("dob").setAttribute("max", maxDate);
 
-// function viewdate() {
-//   const selectDate = document.getElementById("dob").value;
-//   console.log("Date", selectDate);
-// }
 const li = document.querySelector(".historyList");
 
 async function getHistoryData(city, selectDate) {
