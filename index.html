@@ -119,7 +119,7 @@
             class="search block dark:bg-textGrey dark:text-darkGrey w-full p-4 pl-10 text-md text-gray-900 border border-gray-300 rounded-lg outline-1 outline-offset-0 outline-[#1a2027] "
             placeholder="Enter city here" required>
           <button type="submit"
-            class="btn text-white absolute right-2.5 bottom-2.5 bg-[#0059b2] hover:bg-[#007fff] dark:bg-darkPurple dark:hover:bg-lightPurple transition-all font-medium rounded-lg text-md px-4 py-2 ">Search</button>
+            class="btn text-white absolute right-2.5 bottom-2.5 bg-[#0059b2] hover:bg-[#007fff] dark:bg-darkPurple dark:hover:bg-lightPurple transition-all font-medium rounded-full sm:rounded-lg text-md px-4 py-2 ">Search</button>
         </div>
       </form>
       <!-- Error messege -->
@@ -869,7 +869,7 @@
       <h2 class="mb-6 text-4xl font-extrabold text-center">Features</h2>
       <p class="text-center mx-auto max-w-lg">
         WeatherZero provides accurate and reliable weather forecasts with upmost technology to deliver fast for a given
-        location anywhre inthe world.
+        location anywhre in the world.
       </p>
     </div>
   </section>
@@ -1250,8 +1250,11 @@
       <div
         class="flex flex-col lg:flex-row container max-w-6xl mx-auto justify-between items-center space-y-16 md:flex-row md:space-y-0 md:items-start">
         <!-- footer-logo -->
-        <div class="footer-logo">
+        <div class="footer-logo flex flex-col justify-center text-center md:text-left md:justify-start items-center">
           <img src="images/weatherzero_logo.png" alt="footer-logo" class="w-56">
+          <div class="w-56 px-6 pt-4">
+            <p class="text-[12px]">Copyright © 2023 by Charith Sooriyaarachchi.</p>
+          </div>
         </div>
         <!-- footer-links -->
         <div class="flex flex-col md:space-x-20 md:flex-row space-y-16 md:space-y-0">
