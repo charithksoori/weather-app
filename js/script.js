@@ -245,7 +245,10 @@ searchBtn.addEventListener("click", (event) => {
   const city = searchBox.value;
   console.log(city);
   checkWeather(city);
+
   li.classList.add("hidden");
+
+  // -----------------------------
 
   submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -318,11 +321,11 @@ async function getHistoryData(city, selectDate) {
     );
     document.querySelector(".imgHistory").src =
       historyData.forecast.forecastday[0].day.condition.icon;
-    document.querySelector(".conHistory").src =
+    document.querySelector(".conHistory").innerText =
       historyData.forecast.forecastday[0].day.condition.text;
-    document.querySelector(".riseHistory").src =
+    document.querySelector(".riseHistory").innerText =
       historyData.forecast.forecastday[0].astro.sunrise;
-    document.querySelector(".setHistory").src =
+    document.querySelector(".setHistory").innerText =
       historyData.forecast.forecastday[0].astro.sunset;
 
     li.classList.remove("hidden");
