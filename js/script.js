@@ -71,6 +71,8 @@ const searchBtn = document.querySelector(".btn");
 const imgBox = document.querySelector(".img");
 const submitBtn = document.querySelector(".subButton");
 
+let city;
+
 const apiKey = "1258b95ec12041c5856171928231505";
 const apiUrl =
   "https://api.weatherapi.com/v1/current.json?key=1258b95ec12041c5856171928231505&q=";
@@ -110,7 +112,8 @@ window.addEventListener("DOMContentLoaded", () => {
       },
       (err) => {
         alert("Geolocation is not supported by your browser");
-        checkWeather("colombo");
+        city = "colombo";
+        checkWeather(city);
         console.log(err.message);
       }
     );
@@ -125,12 +128,12 @@ async function fetchText(lat, long) {
   console.log("Show", alt, ln);
 
   const search = await fetch(searchUrl + alt.toString() + "," + ln.toString());
-  var cityData = await search.json();
+  const cityData = await search.json();
 
-  const cityName = cityData[0].name;
+  city = cityData[0].name;
 
-  console.log(cityName);
-  checkWeather(cityName);
+  console.log(city);
+  checkWeather(city);
 }
 
 // ==================================================================================================================
@@ -242,20 +245,18 @@ async function checkWeather(city) {
 
 searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  const city = searchBox.value;
+  city = searchBox.value;
   console.log(city);
   checkWeather(city);
 
   li.classList.add("hidden");
+});
 
-  // -----------------------------
-
-  submitBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    const selectDate = document.getElementById("dob").value;
-    console.log("Date", selectDate);
-    getHistoryData(city, selectDate);
-  });
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  const selectDate = document.getElementById("dob").value;
+  console.log("Date", selectDate);
+  getHistoryData(city, selectDate);
 });
 
 // Calender===========for Weather History================================================================================================
