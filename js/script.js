@@ -111,12 +111,6 @@ window.addEventListener("DOMContentLoaded", () => {
       (err) => {
         alert("Geolocation is not supported by your browser");
         checkWeather("colombo");
-
-        submitBtn.addEventListener("click", (event) => {
-          event.preventDefault();
-          const selectDate = document.getElementById("dob").value;
-          getHistoryData("colombo", selectDate);
-        });
         console.log(err.message);
       }
     );
@@ -137,13 +131,6 @@ async function fetchText(lat, long) {
 
   console.log(cityName);
   checkWeather(cityName);
-  li.classList.add("hidden");
-
-  submitBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    const selectDate = document.getElementById("dob").value;
-    getHistoryData(cityName, selectDate);
-  });
 }
 
 // ==================================================================================================================
@@ -256,7 +243,6 @@ searchBtn.addEventListener("click", (event) => {
   const city = searchBox.value;
   console.log(city);
   checkWeather(city);
-  li.classList.add("hidden");
 
   submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
