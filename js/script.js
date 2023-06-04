@@ -167,7 +167,9 @@ async function checkWeather(city) {
       data.current.condition.text;
     document.querySelector(".humidity").innerText = data.current.humidity;
     document.querySelector(".pressure").innerText = data.current.pressure_mb;
-    document.querySelector(".wind").innerText = data.current.wind_kph;
+    document.querySelector(".wind").innerText = Math.round(
+      data.current.wind_kph
+    );
     document.querySelector(".visibility").innerText = data.current.vis_km;
     document.querySelector(".uv").innerText = data.current.uv;
     imgBox.src = data.current.condition.icon;
@@ -243,6 +245,7 @@ searchBtn.addEventListener("click", (event) => {
   const city = searchBox.value;
   console.log(city);
   checkWeather(city);
+  li.classList.add("hidden");
 
   submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
